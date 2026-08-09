@@ -1,0 +1,45 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "run-rpa-script",
+			"type": "shell",
+			"command": "c:\\RPA\\venv\\Scripts\\python.exe c:\\RPA\\01py.py",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "run-rpa-script",
+			"type": "shell",
+			"command": "c:\\RPA\\venv\\Scripts\\python.exe c:\\RPA\\01py.py",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "run-rpa-script",
+			"type": "shell",
+			"command": "c:\\RPA\\venv\\Scripts\\python.exe c:\\RPA\\01py.py",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "run-rpa-script",
+			"type": "shell",
+			"command": "c:\\RPA\\venv\\Scripts\\python.exe c:\\RPA\\01py.py",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "run-rpa-script",
+			"type": "shell",
+			"command": "c:\\RPA\\venv\\Scripts\\python.exe c:\\RPA\\01py.py",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}

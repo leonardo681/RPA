@@ -1,7 +1,0 @@
-RELATÓRIO DE ATIVIDADES DIÁRIAS
-------------------------------
-Operador: leonardo
-Setor: RH
-Data/Hora: 07/08/2026 17:37
-Status: Rotina automatizada concluída com sucesso.
-------------------------------
