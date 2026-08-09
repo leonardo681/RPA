@@ -89,6 +89,15 @@ def abrir_excel(caminho_arquivo: str) -> None:
     time.sleep(5)
 
 
+def fechar_excel() -> None:
+    """Fecha o Excel aberto na interface do Windows, se estiver em execução."""
+    print("Fechando o Excel...")
+    try:
+        os.system("taskkill /f /im EXCEL.EXE")
+    except Exception as exc:
+        print(f"Não foi possível fechar o Excel: {exc}")
+
+
 def executar_fluxo() -> str:
     """Executa todo o fluxo: acessa o site, coleta os valores e grava na planilha Excel."""
     wb, ws, caminho_arquivo = criar_planilha()
@@ -102,6 +111,7 @@ def executar_fluxo() -> str:
         print(registro)
 
     abrir_excel(caminho_salvo)
+    fechar_excel()
     return caminho_salvo
 
 
