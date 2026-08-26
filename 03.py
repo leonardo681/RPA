@@ -1,8 +1,13 @@
 import openpyxl 
+
 from openpyxl import Workbook, load_workbook
 from openpyxl.styles import PatternFill, Font, Alignment
 from openpyxl.utils import get_column_letter
 import selenium 
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.keys import Keys
 import pyautogui as p 
@@ -58,21 +63,46 @@ def realizar_login(email, senha, url=URL_SITE):
 
     # 3. Fluxo de Login usando os seletores diretos
     print("Iniciando processo de login...")
-    
-    # Clica em 'Entrar'
-    r.click('Entrar')
 
-    # Preenche o e-mail e avança
-    r.type('#identifier-field', email)
-    r.click('Continuar')
-
-    # Preenche a senha e avança
-    r.type('#password-field', senha)
-    r.click('Continuar')
     
+
+    r.type('//*[@id="user-name"]', email)
+    r.type('//*[@id="password"]', senha)
+    r.click('//*[@id="login-button"]')
+    r.keyboard('[enter]')
+        
     print("Login concluído com sucesso!")
+
+def preencher_checkout(primeiro_nome="Leonardo", sobrenome="Souza", cep="01000-000"):
+    print("Preenchendo dados de entrega...")
     
-def teste(url='https://www.tabelatacoonline.com.br/'):
+    # Preenche o primeiro nome pelo ID
+    r.type('#first-name', primeiro_nome)
+    
+    # Preenche o sobrenome pelo ID
+    r.type('#last-name', sobrenome)
+    
+    # Preenche o CEP pelo ID
+    r.type('#postal-code', cep)
+    
+    print("Avançando para a confirmação...")
+    # Clica no botão Continue pelo ID
+    r.click('#continue')
+
+def adicionar_e_checkout():
+    print("Adicionando produto ao carrinho...")
+    # 1. Clica no botão "Add to cart" pelo ID
+    r.click('#add-to-cart-sauce-labs-backpack')
+
+    print("Acessando o carrinho...")
+    # 2. Clica no ícone do carrinho pela classe CSS
+    r.click('.shopping_cart_link')
+
+    print("Iniciando o checkout...")
+    # 3. Clica no botão "Checkout" pelo ID
+    r.click('#checkout')
+
+def teste(url='https://www.saucedemo.com/'):
     """
     Função responsável por inicializar o navegador, acessar o site e
     executar o fluxo completo de autenticação via RPA.
@@ -288,12 +318,8 @@ def fechar_navegador():
 # --- EXECUÇÃO DO MÉTODO ---
 if __name__ == "__main__":
     
-    realizar_login(EMAIL_USUARIO, SENHA_USUARIO)
-    rolar_pagina(modo='pixels', pixels=700)
-    acessar_categoria('//a[.//p[text()="Alimentos preparados"]]')
-    alimentos = extrair_alimentos_apenas_python('alimentos_preparados.csv')
-    salvar_em_excel('alimentos_preparados.csv', 'alimentos_preparados.xlsx')
-    abrir_excel('alimentos_preparados.xlsx')
-    fechar_navegador()
+    realizar_login(EMAIL_USUARIO, SENHA_USUARIO, url=URL_SITE)
+    adicionar_e_checkout()
+    preencher_checkout()
 
     

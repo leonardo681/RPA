@@ -1,0 +1,70 @@
+
+START - automation started - Tue Aug 25 2026 11:29:25 GMT-0300 (Hora oficial do Brasil)
+
+LIVE MODE - type done to quit
+ [RPA][STARTED]
+[RPA][0] - listening for inputs
+[RPA][1] - https://www.saucedemo.com/
+[RPA][1] - listening for inputs
+[RPA][2] - exist_result = exist('//*[@id="user-name"]').toString()
+[RPA][2] - listening for inputs
+[RPA][3] - dump exist_result to rpa_python.txt
+[RPA][3] - listening for inputs
+[RPA][4] - type //*[@id="user-name"] as standard_user
+[RPA][4] - listening for inputs
+[RPA][5] - exist_result = exist('//*[@id="password"]').toString()
+[RPA][5] - listening for inputs
+[RPA][6] - dump exist_result to rpa_python.txt
+[RPA][6] - listening for inputs
+[RPA][7] - type //*[@id="password"] as secret_sauce
+[RPA][7] - listening for inputs
+[RPA][8] - exist_result = exist('//*[@id="login-button"]').toString()
+[RPA][8] - listening for inputs
+[RPA][9] - dump exist_result to rpa_python.txt
+[RPA][9] - listening for inputs
+[RPA][10] - click //*[@id="login-button"]
+[RPA][10] - listening for inputs
+[RPA][11] - keyboard [enter]
+[RPA][11] - listening for inputs
+[RPA][12] - exist_result = exist('#add-to-cart-sauce-labs-backpack').toString()
+[RPA][12] - listening for inputs
+[RPA][13] - dump exist_result to rpa_python.txt
+[RPA][13] - listening for inputs
+[RPA][14] - click #add-to-cart-sauce-labs-backpack
+[RPA][14] - listening for inputs
+[RPA][15] - exist_result = exist('.shopping_cart_link').toString()
+[RPA][15] - listening for inputs
+[RPA][16] - dump exist_result to rpa_python.txt
+[RPA][16] - listening for inputs
+[RPA][17] - click .shopping_cart_link
+[RPA][17] - listening for inputs
+[RPA][18] - exist_result = exist('#checkout').toString()
+[RPA][18] - listening for inputs
+[RPA][19] - dump exist_result to rpa_python.txt
+[RPA][19] - listening for inputs
+[RPA][20] - click #checkout
+[RPA][20] - listening for inputs
+[RPA][21] - exist_result = exist('#first-name').toString()
+[RPA][21] - listening for inputs
+[RPA][22] - dump exist_result to rpa_python.txt
+[RPA][22] - listening for inputs
+[RPA][23] - type #first-name as Leonardo
+[RPA][23] - listening for inputs
+[RPA][24] - exist_result = exist('#last-name').toString()
+[RPA][24] - listening for inputs
+[RPA][25] - dump exist_result to rpa_python.txt
+[RPA][25] - listening for inputs
+[RPA][26] - type #last-name as Souza
+[RPA][26] - listening for inputs
+[RPA][27] - exist_result = exist('#postal-code').toString()
+[RPA][27] - listening for inputs
+[RPA][28] - dump exist_result to rpa_python.txt
+[RPA][28] - listening for inputs
+[RPA][29] - type #postal-code as 01000-000
+[RPA][29] - listening for inputs
+[RPA][30] - exist_result = exist('#continue').toString()
+[RPA][30] - listening for inputs
+[RPA][31] - dump exist_result to rpa_python.txt
+[RPA][31] - listening for inputs
+[RPA][32] - click #continue
+[RPA][32] - listening for inputs
