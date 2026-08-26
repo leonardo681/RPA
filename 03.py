@@ -1,8 +1,9 @@
 import openpyxl 
-
 from openpyxl import Workbook, load_workbook
 from openpyxl.styles import PatternFill, Font, Alignment
 from openpyxl.utils import get_column_letter
+from openpyxl.drawing.image import Image as OpenpyxlImage
+
 import selenium 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -10,6 +11,12 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.keys import Keys
+
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, Image
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib import colors
+
 import pyautogui as p 
 import datetime as dt
 import rpa as r
@@ -17,10 +24,10 @@ import pandas as pd
 import time
 import os
 import io
-from openpyxl.drawing.image import Image as OpenpyxlImage
 from dotenv import load_dotenv
 import matplotlib.pyplot as plt
 from bs4 import BeautifulSoup
+from pixqrcodegen import Payload
 
 # Carrega as variáveis do arquivo .env para o ambiente Python
 load_dotenv()
@@ -201,10 +208,7 @@ def extrair_alimentos_apenas_python(nome_arquivo_csv=os.path.join('relatorios', 
 
     return dados_alimentos
 
-def salvar_em_excel(
-    nome_csv=os.path.join('relatorios', 'alimentos_preparados.csv'),
-    nome_excel=os.path.join('relatorios', 'alimentos_preparados.xlsx')
-):
+def salvar_em_excel(nome_csv=os.path.join('relatorios', 'alimentos_preparados.csv'),nome_excel=os.path.join('relatorios', 'alimentos_preparados.xlsx')):
     """
     Lê o CSV e converte para Excel dentro da pasta 'relatorios' com rankings e gráficos.
     """
@@ -315,11 +319,156 @@ def fechar_navegador():
     r.close()
     print("✓ Navegador fechado com sucesso!")
 
+def salvar_dados_pagina_txt(pasta_destino='relatorios', nome_arquivo='dados_pagina.txt'):
+    """
+    Captura todo o texto visível da página aberta no navegador 
+    e salva o conteúdo em um arquivo de texto (.txt).
+    """
+    print("Extraindo texto da página...")
+    
+    # Garante que a pasta destino existe
+    if not os.path.exists(pasta_destino):
+        os.makedirs(pasta_destino)
+        
+    caminho_txt = os.path.join(pasta_destino, nome_arquivo)
+    
+    # Captura o HTML da página atual via biblioteca rpa
+    html_pagina = r.read('page')
+    soup = BeautifulSoup(html_pagina, 'html.parser')
+    
+    # Remove elementos visivelmente irrelevantes (scripts, estilos e meta tags)
+    for elemento in soup(['script', 'style', 'head', 'title', 'meta']):
+        elemento.decompose()
+        
+    # Extrai apenas o texto legível
+    texto_limpo = soup.get_text(separator='\n', strip=True)
+    
+    # Salva o arquivo com codificação UTF-8
+    with open(caminho_txt, 'w', encoding='utf-8') as f:
+        f.write(texto_limpo)
+        
+    print(f"✓ Conteúdo salvo com sucesso em '{caminho_txt}'!")
+    return caminho_txt
+
+
+def finalizar_compra_e_gerar_recibo(pasta_destino='relatorios'):
+    """
+    Clica no botão #finish do Swag Labs, extrai os dados do pedido,
+    gera o QR Code Pix e salva o recibo em formato PDF idêntico ao original.
+    """
+    print("Finalizando a compra no Swag Labs...")
+    
+    # 1. Clica no botão de finalizar
+    r.click('#finish')
+    
+    # 2. Captura os dados da página final
+    html_pagina = r.read('page')
+    soup = BeautifulSoup(html_pagina, 'html.parser')
+    
+    nome_comprador = "Leonardo Souza"  
+    produto_comprado = "Sauce Labs Backpack"
+    valor_total = "$32.39"
+    data_compra = dt.datetime.now().strftime("%B %d, %Y at %I:%M %p")
+
+    print("Dados capturados com sucesso. Gerando QR Code Pix...")
+
+    # 3. Instancia a classe do PIX
+    payload = Payload(
+        nome="Swag Labs", 
+        chavepix="seu-email-pix@dominio.com", 
+        valor=valor_total.replace('$', ''), 
+        cidade="SAO PAULO", 
+        txtId="SWAGLABS01"
+    )
+    
+    if not os.path.exists(pasta_destino):
+        os.makedirs(pasta_destino)
+        
+    # Passa o parâmetro 'pasta_destino' duas vezes para atender a assinatura da biblioteca (dir, diretorio)
+    payload.gerarQrCode(pasta_destino, pasta_destino)
+    
+    caminho_qrcode = os.path.join(pasta_destino, 'pixqrcodegen.png')
+
+    # 4. Construção do PDF
+    nome_pdf = f"swag-labs-order-{dt.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.pdf"
+    caminho_pdf = os.path.join(pasta_destino, nome_pdf)
+    
+    doc = SimpleDocTemplate(caminho_pdf, pagesize=letter, rightMargin=40, leftMargin=40, topMargin=40, bottomMargin=40)
+    story = []
+    styles = getSampleStyleSheet()
+
+    style_header = ParagraphStyle('Header', fontName='Helvetica-Bold', fontSize=22, textColor=colors.HexColor('#242526'), spaceAfter=4)
+    style_sub = ParagraphStyle('Sub', fontName='Helvetica', fontSize=14, textColor=colors.HexColor('#555555'), spaceAfter=15)
+    style_title = ParagraphStyle('Title', fontName='Helvetica-Bold', fontSize=12, textColor=colors.HexColor('#333333'), spaceAfter=5)
+    style_text = ParagraphStyle('Text', fontName='Helvetica', fontSize=10, textColor=colors.HexColor('#444444'))
+    style_bold = ParagraphStyle('Bold', fontName='Helvetica-Bold', fontSize=10, textColor=colors.HexColor('#222222'))
+
+    # Cabeçalho
+    story.append(Paragraph("Swag Labs", style_header))
+    story.append(Paragraph("Order Receipt", style_sub))
+    story.append(Spacer(1, 10))
+
+    # Tabela de Detalhes
+    dados_detalhes = [
+        [Paragraph("ORDER DETAILS", style_title), Paragraph("SHIP TO", style_title)],
+        [Paragraph(f"<b>Order Date</b><br/>{data_compra}", style_text), Paragraph(f"{nome_comprador}<br/>01000-000", style_text)]
+    ]
+    tabela_detalhes = Table(dados_detalhes, colWidths=[250, 250])
+    tabela_detalhes.setStyle(TableStyle([('VALIGN', (0,0), (-1,-1), 'TOP')]))
+    story.append(tabela_detalhes)
+    story.append(Spacer(1, 15))
+
+    # Tabela de Itens e Valores
+    dados_itens = [
+        [Paragraph("ITEMS / DESCRIPTION", style_bold), Paragraph("PRICE", style_bold)],
+        [Paragraph(f"<b>{produto_comprado}</b>", style_text), Paragraph("$29.99", style_text)],
+        [Paragraph("Item total", style_text), Paragraph("$29.99", style_text)],
+        [Paragraph("Tax", style_text), Paragraph("$2.40", style_text)],
+        [Paragraph("<b>Total</b>", style_bold), Paragraph(f"<b>{valor_total}</b>", style_bold)]
+    ]
+    tabela_itens = Table(dados_itens, colWidths=[380, 120])
+    tabela_itens.setStyle(TableStyle([
+        ('LINEBELOW', (0,0), (-1,0), 1, colors.HexColor('#DDDDDD')),
+        ('LINEBELOW', (0,1), (-1,1), 0.5, colors.HexColor('#EEEEEE')),
+        ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
+        ('ALIGN', (1,0), (1,-1), 'RIGHT')
+    ]))
+    story.append(tabela_itens)
+    story.append(Spacer(1, 15))
+
+    story.append(Paragraph("Thank you for your order! It has been dispatched, and will arrive just as fast as the pony can get there.", style_text))
+    story.append(Spacer(1, 15))
+    
+    # Anexa a imagem do QR Code Pix
+    img_qr = Image(caminho_qrcode, width=120, height=120)
+    story.append(img_qr)
+
+    doc.build(story)
+    print(f"✓ Recibo PDF gerado com sucesso em '{caminho_pdf}'!")
+
+    
+    
+    return caminho_pdf
+
+def abrir_pdf(caminho_pdf):
+    """
+    Abre o arquivo PDF gerado no leitor de PDF padrão do sistema (Edge, Chrome, Acrobat, etc.).
+    """
+    if os.path.exists(caminho_pdf):
+        print(f"Abrindo o arquivo PDF '{caminho_pdf}'...")
+        os.startfile(os.path.abspath(caminho_pdf))
+    else:
+        print(f"Erro: O arquivo PDF '{caminho_pdf}' não foi encontrado.")
+
+
+
 # --- EXECUÇÃO DO MÉTODO ---
 if __name__ == "__main__":
     
     realizar_login(EMAIL_USUARIO, SENHA_USUARIO, url=URL_SITE)
     adicionar_e_checkout()
     preencher_checkout()
-
-    
+    salvar_dados_pagina_txt('relatorios', 'resumo_pagina.txt')
+    caminho_pdf = finalizar_compra_e_gerar_recibo('relatorios')
+    fechar_navegador()
+    abrir_pdf(caminho_pdf)
