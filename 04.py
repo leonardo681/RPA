@@ -320,6 +320,7 @@ def fechar_navegador():
     print("✓ Navegador fechado com sucesso!")
 
 def salvar_dados_pagina_txt(pasta_destino='relatorios', nome_arquivo='dados_pagina.txt'):
+
     """
     Captura todo o texto visível da página aberta no navegador 
     e salva o conteúdo em um arquivo de texto (.txt).
@@ -349,7 +350,6 @@ def salvar_dados_pagina_txt(pasta_destino='relatorios', nome_arquivo='dados_pagi
         
     print(f"✓ Conteúdo salvo com sucesso em '{caminho_txt}'!")
     return caminho_txt
-
 
 def finalizar_compra_e_gerar_recibo(pasta_destino='relatorios'):
     """
@@ -390,7 +390,7 @@ def finalizar_compra_e_gerar_recibo(pasta_destino='relatorios'):
     caminho_qrcode = os.path.join(pasta_destino, 'pixqrcodegen.png')
 
     # 4. Construção do PDF
-    nome_pdf = f"swag-labs-order-{dt.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.pdf"
+    nome_pdf = f"comprovante_final.pdf"
     caminho_pdf = os.path.join(pasta_destino, nome_pdf)
     
     doc = SimpleDocTemplate(caminho_pdf, pagesize=letter, rightMargin=40, leftMargin=40, topMargin=40, bottomMargin=40)
