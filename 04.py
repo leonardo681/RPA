@@ -17,8 +17,9 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, Tabl
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
 
-
+import csv
 import os
+import pyperclip
 import time
 import urllib.parse
 import rpa as r
@@ -73,9 +74,8 @@ def abrir_whatsapp_web():
     r.url('https://web.whatsapp.com')
     print("✓ WhatsApp Web carregado!")
 
-def gerar_planilha_clientes(
+def gerar_planilha_clientes():
     nome_excel=os.path.join('relatorios', 'clientes_cobranca.xlsx')
-):
     """Gera uma planilha Excel com dados fictícios de cobrança de clientes."""
     print("Gerando planilha de clientes...")
 
@@ -210,106 +210,196 @@ def gerar_boleto_cliente(info_cliente, pasta_destino='relatorios'):
     doc.build(story)
     return os.path.abspath(caminho_pdf)
 
+def aguardar_envio_whatsapp(timeout=2):
+    """Monitora a interface do WhatsApp até que o ícone de 'check' de envio apareça."""
+    print("Aguardando confirmação de envio no WhatsApp...")
+    inicio = time.time()
+
+    seletor_pendente = '//*[@data-icon="msg-time"] | //*[@data-icon="time"] | //*[@data-testid="msg-time"]'
+    seletor_enviado = '//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]'
+
+    while (time.time() - inicio) < timeout:
+        if r.present(seletor_enviado) and not r.present(seletor_pendente):
+            print("✓ Envio confirmado pelo WhatsApp!")
+            return True
+        time.sleep(0.5)
+
+    print("⚠️ Tempo limite atingido ao aguardar confirmação.")
+    return False
+
+def registrar_log_csv(
+    registro,
+    caminho_csv=os.path.join('relatorios', 'relatorio_envios.csv'),
+):
+    """Grava o resultado do envio de cada cliente no arquivo CSV de relatórios."""
+    os.makedirs(os.path.dirname(caminho_csv), exist_ok=True)
+    arquivo_existe = os.path.exists(caminho_csv)
+
+    campos = ['data_hora', 'nome', 'telefone', 'valor', 'status', 'detalhes']
+
+    with open(caminho_csv, mode='a', newline='', encoding='utf-8-sig') as file:
+        writer = csv.DictWriter(file, fieldnames=campos)
+        if not arquivo_existe:
+            writer.writeheader()
+        writer.writerow(registro)
+
 def enviar_boletos_whatsapp(carteira_clientes, pasta_destino='relatorios'):
-    """
-    Gera o PDF individual de cada cliente e envia via WhatsApp Web.
-    Garante o foco no chat para enviar a mensagem e utiliza seletores atualizados para o anexo.
-    """
+    """Envia os boletos e registra o status de cada cliente diretamente em um arquivo CSV."""
     if not carteira_clientes:
-        print("Nenhum cliente fornecido para envio.")
+        print('Nenhum cliente fornecido para envio.')
         return
 
-    print("Iniciando processo de geração e envio de boletos...")
+    print('Iniciando processamento e envio...')
 
-    for telefone, info in carteira_clientes.items():
+    seletor_anexo = '//*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]'
+    seletor_doc = '//span[contains(text(), "Documento")] | //button[contains(., "Documento")] | //li[contains(., "Documento")]'
+    seletor_legenda = '//p[contains(@class, "selectable-text")] | //p[contains(@class, "copyable-text")] | //div[@contenteditable="true"]'
+    seletor_botao_enviar = '//*[@data-testid="wds-ic-send-filled"] | //*[@data-icon="wds-ic-send-filled"] | //button[@aria-label="Enviar"]'
+
+    total_clientes = len(carteira_clientes)
+
+    for index, (telefone, info) in enumerate(carteira_clientes.items(), start=1):
         nome = info.get('nome', 'Cliente')
         valor = info.get('valor a ser pago', '')
         vencimento = info.get('data de vencimento', '')
+        data_hora_atual = time.strftime('%Y-%m-%d %H:%M:%S')
 
-        # 1. Gera o PDF do cliente
-        caminho_pdf = gerar_boleto_cliente(info, pasta_destino)
-        print(f"\n[+] PDF gerado para {nome}: {caminho_pdf}")
+        print(f'[{index}/{total_clientes}] Processando: {nome} ({telefone})...')
 
-        # 2. Formata e codifica a mensagem para a URL
-        mensagem = f"Olá {nome}, tudo bem? Segue em anexo o seu demonstrativo no valor de {valor} com vencimento para {vencimento}."
-        mensagem_codificada = urllib.parse.quote(mensagem)
-        
-        # 3. Abre a conversa direta no WhatsApp Web
-        url_wa = f"https://web.whatsapp.com/send?phone={telefone}&text={mensagem_codificada}"
-        r.url(url_wa)
-        
-        print(f"Aguardando carregamento da conversa com {nome} ({telefone})...")
-        time.sleep(10)  # Tempo para o WhatsApp carregar a conversa completamente
+        # Modelo padrão de registro para o CSV
+        log_registro = {
+            'data_hora': data_hora_atual,
+            'nome': nome,
+            'telefone': telefone,
+            'valor': valor,
+            'status': '',
+            'detalhes': '',
+        }
 
-        # 4. Validação: Verifica se o número existe no WhatsApp
-        numero_invalido = r.present('//div[contains(text(), "inválido")]') or \
-                          r.present('//div[contains(text(), "invalid")]') or \
-                          r.present('//div[contains(text(), "não está no WhatsApp")]')
-
-        if numero_invalido:
-            print(f"⚠️ O número {telefone} do cliente '{nome}' não existe no WhatsApp. Pulo efetuado.")
-            if r.present('//button[contains(., "OK")]'):
-                r.click('//button[contains(., "OK")]')
-            continue
-
-        print(f"✓ Número {telefone} confirmado!")
-
-        # 5. Envia a MENSAGEM DE TEXTO (Clica na caixa de texto para dar foco antes de enviar)
-        seletor_caixa_texto = '//footer//div[@contenteditable="true"]'
-        seletor_botao_enviar_texto = '//span[@data-icon="send"] | //button[@aria-label="Enviar"] | //button[@title="Enviar"]'
-
-        if r.present(seletor_caixa_texto):
-            r.click(seletor_caixa_texto)
-            time.sleep(1)
-            
-            if r.present(seletor_botao_enviar_texto):
-                r.click(seletor_botao_enviar_texto)
-            else:
-                r.keyboard('[enter]')
-            
-            print(f"✓ Mensagem de texto enviada para {nome}!")
-            time.sleep(3)
-        else:
-            print(f"⚠️ Caixa de texto não encontrada para {nome}.")
-
-        # 6. Anexar e enviar o documento PDF
-        # Seletores combinados para encontrar o botão de anexo (+)
-        seletor_anexo = '//button[@title="Anexar"] | //button[@aria-label="Anexar"] | //span[@data-icon="plus"] | //span[@data-icon="attach-menu-plus"] | //div[@title="Anexar"]'
-        
         try:
-            if r.present(seletor_anexo):
-                r.click(seletor_anexo)
-                time.sleep(2)
+            # 1. Gera o PDF do cliente
+            caminho_pdf = gerar_boleto_cliente(info, pasta_destino)
 
-                # Clica na opção 'Documento' do menu que abre
-                seletor_doc = '//span[contains(text(), "Documento")] | //button[contains(., "Documento")] | //li[contains(., "Documento")]'
+            # 2. Abre o chat no WhatsApp Web
+            url_wa = f'https://web.whatsapp.com/send?phone={telefone}'
+            r.url(url_wa)
+
+            # Aguarda carregamento
+            inicio_carga = time.time()
+            conversa_carregada = False
+            while (time.time() - inicio_carga) < 15:
+                if r.present(
+                    '//div[contains(text(), "inválido")]'
+                ) or r.present('//div[contains(text(), "não está no WhatsApp")]'):
+                    break
+                if r.present(seletor_anexo):
+                    conversa_carregada = True
+                    break
+                time.sleep(0.5)
+
+            # 3. Valida número no WhatsApp
+            if not conversa_carregada or r.present(
+                '//div[contains(text(), "inválido")]'
+            ):
+                log_registro['status'] = 'NUMERO_INVALIDO'
+                log_registro['detalhes'] = (
+                    'O número não possui conta ativa no WhatsApp.'
+                )
+                registrar_log_csv(log_registro)
+                print(f'  ↳ ⚠️ Número inválido. Registrado no CSV.')
+
+                if r.present('//button[contains(., "OK")]'):
+                    r.click('//button[contains(., "OK")]')
+                continue
+
+            # 4. Anexo do PDF
+            r.click(seletor_anexo)
+
+            inicio_menu = time.time()
+            menu_aberto = False
+            while (time.time() - inicio_menu) < 5:
                 if r.present(seletor_doc):
-                    r.click(seletor_doc)
-                    time.sleep(2)
+                    menu_aberto = True
+                    break
+                time.sleep(1)
 
-                    # Interage com a janela de arquivos do Windows
-                    p.write(caminho_pdf)
-                    p.press('enter')
-                    time.sleep(3)
+            if not menu_aberto or not r.present(seletor_doc):
+                log_registro['status'] = 'ERRO_ANEXO'
+                log_registro['detalhes'] = (
+                    'Opção "Documento" não apareceu no menu de anexos.'
+                )
+                registrar_log_csv(log_registro)
+                print(f'  ↳ ❌ Falha ao abrir menu de documento.')
+                continue
 
-                    # Clica no botão de enviar o PDF na tela de pré-visualização
-                    seletor_enviar_doc = '//span[@data-icon="send"] | //div[@aria-label="Enviar"] | //button[@aria-label="Enviar"]'
-                    if r.present(seletor_enviar_doc):
-                        r.click(seletor_enviar_doc)
-                    else:
-                        r.keyboard('[enter]')
-                    
-                    print(f"✓ Boleto PDF enviado com sucesso para {nome}!")
-                    time.sleep(3)
-                else:
-                    print(f"⚠️ Opção 'Documento' não foi encontrada no menu de anexos.")
+            r.click(seletor_doc)
+            time.sleep(2)
+
+            # Cole o caminho no Windows
+            pyperclip.copy(caminho_pdf)
+            time.sleep(1)
+            p.hotkey('ctrl', 'v')
+            time.sleep(1)
+            p.press('enter')
+
+            # Aguarda pré-visualização
+            inicio_modal = time.time()
+            while (time.time() - inicio_modal) < 8:
+                if r.present(seletor_legenda) or r.present(
+                    seletor_botao_enviar
+                ):
+                    break
+                time.sleep(0.5)
+
+            # Link fictício (pode alterar a URL para o seu domínio real)
+            link_pagamento = f'https://fatura.suaempresa.com.br/2via/{telefone}'
+
+            # Mensagem com o link incluído
+            mensagem = f'Olá {nome}, tudo bem? Segue em anexo o seu demonstrativo no valor de {valor} com vencimento para {vencimento}.\n\nPara facilitar, você também pode acessar a 2ª via pelo link: {link_pagamento}'
+            if r.present(seletor_legenda):
+                r.click(seletor_legenda)
+                time.sleep(0.5)
+                pyperclip.copy(mensagem)
+                time.sleep(0.2)
+                p.hotkey('ctrl', 'v')
+                time.sleep(0.5)
+
+            if r.present(seletor_botao_enviar):
+                r.click(seletor_botao_enviar)
+
+            time.sleep(0.3)
+            r.keyboard('[enter]')
+
+            # 6. Aguarda confirmação
+            envio_confirmado = aguardar_envio_whatsapp(timeout=20)
+
+            if envio_confirmado:
+                log_registro['status'] = 'SUCESSO'
+                log_registro['detalhes'] = (
+                    'Boleto e mensagem enviados e confirmados com sucesso.'
+                )
+                print(f'  ↳ ✓ Enviado com sucesso!')
             else:
-                print(f"⚠️ Não foi possível localizar o botão de anexo para {nome}.")
+                log_registro['status'] = 'TIMEOUT_CONFIRMACAO'
+                log_registro['detalhes'] = (
+                    'Mensagem disparada, mas confirmação visual excedeu o tempo.'
+                )
+                print(f'  ↳ ⚠️ Envio disparado sem confirmação visual.')
+
+            registrar_log_csv(log_registro)
 
         except Exception as e:
-            print(f"Erro ao anexar arquivo para {nome}: {e}")
+            log_registro['status'] = 'ERRO_EXCECAO'
+            log_registro['detalhes'] = str(e)
+            registrar_log_csv(log_registro)
+            print(f'  ↳ ❌ Erro inesperado: {e}')
 
-    print("\n✓ Processo de envio concluído!")
+    print(
+        '\n✓ Processamento finalizado! Relatório salvo em: relatorios/relatorio_envios.csv'
+    )
+
+
+
 
 
 

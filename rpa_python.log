@@ -1,80 +1,828 @@
 
-START - automation started - Thu Sep 03 2026 10:57:18 GMT-0300 (Hora oficial do Brasil)
+START - automation started - Mon Sep 07 2026 17:03:18 GMT-0300 (Hora oficial do Brasil)
 
 LIVE MODE - type done to quit
  [RPA][STARTED]
 [RPA][0] - listening for inputs
 [RPA][1] - https://web.whatsapp.com
 [RPA][1] - listening for inputs
-[RPA][2] - https://web.whatsapp.com/send?phone=554899667714&text=Ol%C3%A1%20Carlos%20Eduardo%20Silva%2C%20tudo%20bem%3F%20Segue%20em%20anexo%20o%20seu%20demonstrativo%20no%20valor%20de%20R%24%20250%2C50%20com%20vencimento%20para%202026-01-01%2000%3A00%3A00.
+[RPA][2] - https://web.whatsapp.com/send?phone=554899667714
 [RPA][2] - listening for inputs
 [RPA][3] - present_result = present('//div[contains(text(), "inválido")]').toString()
 [RPA][3] - listening for inputs
 [RPA][4] - dump present_result to rpa_python.txt
 [RPA][4] - listening for inputs
-[RPA][5] - present_result = present('//div[contains(text(), "invalid")]').toString()
+[RPA][5] - present_result = present('//div[contains(text(), "não está no WhatsApp")]').toString()
 [RPA][5] - listening for inputs
 [RPA][6] - dump present_result to rpa_python.txt
 [RPA][6] - listening for inputs
-[RPA][7] - present_result = present('//div[contains(text(), "não está no WhatsApp")]').toString()
+[RPA][7] - present_result = present('//*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]').toString()
 [RPA][7] - listening for inputs
 [RPA][8] - dump present_result to rpa_python.txt
 [RPA][8] - listening for inputs
-[RPA][9] - keyboard [enter]
+[RPA][9] - present_result = present('//div[contains(text(), "inválido")]').toString()
 [RPA][9] - listening for inputs
-[RPA][10] - present_result = present('//span[@data-icon="plus"]').toString()
+[RPA][10] - dump present_result to rpa_python.txt
 [RPA][10] - listening for inputs
-[RPA][11] - dump present_result to rpa_python.txt
+[RPA][11] - present_result = present('//div[contains(text(), "não está no WhatsApp")]').toString()
 [RPA][11] - listening for inputs
-[RPA][12] - present_result = present('//span[@data-icon="attach-menu-plus"]').toString()
+[RPA][12] - dump present_result to rpa_python.txt
 [RPA][12] - listening for inputs
-[RPA][13] - dump present_result to rpa_python.txt
+[RPA][13] - present_result = present('//*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]').toString()
 [RPA][13] - listening for inputs
-[RPA][14] - https://web.whatsapp.com/send?phone=554896403301&text=Ol%C3%A1%20Mariana%20Souza%2C%20tudo%20bem%3F%20Segue%20em%20anexo%20o%20seu%20demonstrativo%20no%20valor%20de%20R%24%20480%2C00%20com%20vencimento%20para%202025-01-01%2000%3A00%3A00.
+[RPA][14] - dump present_result to rpa_python.txt
 [RPA][14] - listening for inputs
 [RPA][15] - present_result = present('//div[contains(text(), "inválido")]').toString()
 [RPA][15] - listening for inputs
 [RPA][16] - dump present_result to rpa_python.txt
 [RPA][16] - listening for inputs
-[RPA][17] - present_result = present('//div[contains(text(), "invalid")]').toString()
+[RPA][17] - present_result = present('//div[contains(text(), "não está no WhatsApp")]').toString()
 [RPA][17] - listening for inputs
 [RPA][18] - dump present_result to rpa_python.txt
 [RPA][18] - listening for inputs
-[RPA][19] - present_result = present('//div[contains(text(), "não está no WhatsApp")]').toString()
+[RPA][19] - present_result = present('//*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]').toString()
 [RPA][19] - listening for inputs
 [RPA][20] - dump present_result to rpa_python.txt
 [RPA][20] - listening for inputs
-[RPA][21] - keyboard [enter]
+[RPA][21] - present_result = present('//div[contains(text(), "inválido")]').toString()
 [RPA][21] - listening for inputs
-[RPA][22] - present_result = present('//span[@data-icon="plus"]').toString()
+[RPA][22] - dump present_result to rpa_python.txt
 [RPA][22] - listening for inputs
-[RPA][23] - dump present_result to rpa_python.txt
+[RPA][23] - present_result = present('//div[contains(text(), "não está no WhatsApp")]').toString()
 [RPA][23] - listening for inputs
-[RPA][24] - present_result = present('//span[@data-icon="attach-menu-plus"]').toString()
+[RPA][24] - dump present_result to rpa_python.txt
 [RPA][24] - listening for inputs
-[RPA][25] - dump present_result to rpa_python.txt
+[RPA][25] - present_result = present('//*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]').toString()
 [RPA][25] - listening for inputs
-[RPA][26] - https://web.whatsapp.com/send?phone=554898280959&text=Ol%C3%A1%20Roberto%20Alves%2C%20tudo%20bem%3F%20Segue%20em%20anexo%20o%20seu%20demonstrativo%20no%20valor%20de%20R%24%20135%2C90%20com%20vencimento%20para%202025-01-01%2000%3A00%3A00.
+[RPA][26] - dump present_result to rpa_python.txt
 [RPA][26] - listening for inputs
 [RPA][27] - present_result = present('//div[contains(text(), "inválido")]').toString()
 [RPA][27] - listening for inputs
 [RPA][28] - dump present_result to rpa_python.txt
 [RPA][28] - listening for inputs
-[RPA][29] - present_result = present('//div[contains(text(), "invalid")]').toString()
+[RPA][29] - present_result = present('//div[contains(text(), "não está no WhatsApp")]').toString()
 [RPA][29] - listening for inputs
 [RPA][30] - dump present_result to rpa_python.txt
 [RPA][30] - listening for inputs
-[RPA][31] - present_result = present('//div[contains(text(), "não está no WhatsApp")]').toString()
+[RPA][31] - present_result = present('//*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]').toString()
 [RPA][31] - listening for inputs
 [RPA][32] - dump present_result to rpa_python.txt
 [RPA][32] - listening for inputs
-[RPA][33] - keyboard [enter]
+[RPA][33] - present_result = present('//div[contains(text(), "inválido")]').toString()
 [RPA][33] - listening for inputs
-[RPA][34] - present_result = present('//span[@data-icon="plus"]').toString()
+[RPA][34] - dump present_result to rpa_python.txt
 [RPA][34] - listening for inputs
-[RPA][35] - dump present_result to rpa_python.txt
+[RPA][35] - present_result = present('//div[contains(text(), "não está no WhatsApp")]').toString()
 [RPA][35] - listening for inputs
-[RPA][36] - present_result = present('//span[@data-icon="attach-menu-plus"]').toString()
+[RPA][36] - dump present_result to rpa_python.txt
 [RPA][36] - listening for inputs
-[RPA][37] - dump present_result to rpa_python.txt
+[RPA][37] - present_result = present('//*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]').toString()
 [RPA][37] - listening for inputs
+[RPA][38] - dump present_result to rpa_python.txt
+[RPA][38] - listening for inputs
+[RPA][39] - present_result = present('//div[contains(text(), "inválido")]').toString()
+[RPA][39] - listening for inputs
+[RPA][40] - dump present_result to rpa_python.txt
+[RPA][40] - listening for inputs
+[RPA][41] - present_result = present('//div[contains(text(), "não está no WhatsApp")]').toString()
+[RPA][41] - listening for inputs
+[RPA][42] - dump present_result to rpa_python.txt
+[RPA][42] - listening for inputs
+[RPA][43] - present_result = present('//*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]').toString()
+[RPA][43] - listening for inputs
+[RPA][44] - dump present_result to rpa_python.txt
+[RPA][44] - listening for inputs
+[RPA][45] - present_result = present('//div[contains(text(), "inválido")]').toString()
+[RPA][45] - listening for inputs
+[RPA][46] - dump present_result to rpa_python.txt
+[RPA][46] - listening for inputs
+[RPA][47] - exist_result = exist('//*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]').toString()
+[RPA][47] - listening for inputs
+[RPA][48] - dump exist_result to rpa_python.txt
+[RPA][48] - listening for inputs
+[RPA][49] - click //*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]
+[RPA][49] - listening for inputs
+[RPA][50] - present_result = present('//span[contains(text(), "Documento")] | //button[contains(., "Documento")] | //li[contains(., "Documento")]').toString()
+[RPA][50] - listening for inputs
+[RPA][51] - dump present_result to rpa_python.txt
+[RPA][51] - listening for inputs
+[RPA][52] - present_result = present('//span[contains(text(), "Documento")] | //button[contains(., "Documento")] | //li[contains(., "Documento")]').toString()
+[RPA][52] - listening for inputs
+[RPA][53] - dump present_result to rpa_python.txt
+[RPA][53] - listening for inputs
+[RPA][54] - exist_result = exist('//span[contains(text(), "Documento")] | //button[contains(., "Documento")] | //li[contains(., "Documento")]').toString()
+[RPA][54] - listening for inputs
+[RPA][55] - dump exist_result to rpa_python.txt
+[RPA][55] - listening for inputs
+[RPA][56] - click //span[contains(text(), "Documento")] | //button[contains(., "Documento")] | //li[contains(., "Documento")]
+[RPA][56] - listening for inputs
+[RPA][57] - present_result = present('//p[contains(@class, "selectable-text")] | //p[contains(@class, "copyable-text")] | //div[@contenteditable="true"]').toString()
+[RPA][57] - listening for inputs
+[RPA][58] - dump present_result to rpa_python.txt
+[RPA][58] - listening for inputs
+[RPA][59] - present_result = present('//p[contains(@class, "selectable-text")] | //p[contains(@class, "copyable-text")] | //div[@contenteditable="true"]').toString()
+[RPA][59] - listening for inputs
+[RPA][60] - dump present_result to rpa_python.txt
+[RPA][60] - listening for inputs
+[RPA][61] - exist_result = exist('//p[contains(@class, "selectable-text")] | //p[contains(@class, "copyable-text")] | //div[@contenteditable="true"]').toString()
+[RPA][61] - listening for inputs
+[RPA][62] - dump exist_result to rpa_python.txt
+[RPA][62] - listening for inputs
+[RPA][63] - click //p[contains(@class, "selectable-text")] | //p[contains(@class, "copyable-text")] | //div[@contenteditable="true"]
+[RPA][63] - listening for inputs
+[RPA][64] - present_result = present('//*[@data-testid="wds-ic-send-filled"] | //*[@data-icon="wds-ic-send-filled"] | //button[@aria-label="Enviar"]').toString()
+[RPA][64] - listening for inputs
+[RPA][65] - dump present_result to rpa_python.txt
+[RPA][65] - listening for inputs
+[RPA][66] - exist_result = exist('//*[@data-testid="wds-ic-send-filled"] | //*[@data-icon="wds-ic-send-filled"] | //button[@aria-label="Enviar"]').toString()
+[RPA][66] - listening for inputs
+[RPA][67] - dump exist_result to rpa_python.txt
+[RPA][67] - listening for inputs
+[RPA][68] - click //*[@data-testid="wds-ic-send-filled"] | //*[@data-icon="wds-ic-send-filled"] | //button[@aria-label="Enviar"]
+[RPA][68] - listening for inputs
+[RPA][69] - keyboard [enter]
+[RPA][69] - listening for inputs
+[RPA][70] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][70] - listening for inputs
+[RPA][71] - dump present_result to rpa_python.txt
+[RPA][71] - listening for inputs
+[RPA][72] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][72] - listening for inputs
+[RPA][73] - dump present_result to rpa_python.txt
+[RPA][73] - listening for inputs
+[RPA][74] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][74] - listening for inputs
+[RPA][75] - dump present_result to rpa_python.txt
+[RPA][75] - listening for inputs
+[RPA][76] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][76] - listening for inputs
+[RPA][77] - dump present_result to rpa_python.txt
+[RPA][77] - listening for inputs
+[RPA][78] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][78] - listening for inputs
+[RPA][79] - dump present_result to rpa_python.txt
+[RPA][79] - listening for inputs
+[RPA][80] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][80] - listening for inputs
+[RPA][81] - dump present_result to rpa_python.txt
+[RPA][81] - listening for inputs
+[RPA][82] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][82] - listening for inputs
+[RPA][83] - dump present_result to rpa_python.txt
+[RPA][83] - listening for inputs
+[RPA][84] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][84] - listening for inputs
+[RPA][85] - dump present_result to rpa_python.txt
+[RPA][85] - listening for inputs
+[RPA][86] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][86] - listening for inputs
+[RPA][87] - dump present_result to rpa_python.txt
+[RPA][87] - listening for inputs
+[RPA][88] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][88] - listening for inputs
+[RPA][89] - dump present_result to rpa_python.txt
+[RPA][89] - listening for inputs
+[RPA][90] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][90] - listening for inputs
+[RPA][91] - dump present_result to rpa_python.txt
+[RPA][91] - listening for inputs
+[RPA][92] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][92] - listening for inputs
+[RPA][93] - dump present_result to rpa_python.txt
+[RPA][93] - listening for inputs
+[RPA][94] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][94] - listening for inputs
+[RPA][95] - dump present_result to rpa_python.txt
+[RPA][95] - listening for inputs
+[RPA][96] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][96] - listening for inputs
+[RPA][97] - dump present_result to rpa_python.txt
+[RPA][97] - listening for inputs
+[RPA][98] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][98] - listening for inputs
+[RPA][99] - dump present_result to rpa_python.txt
+[RPA][99] - listening for inputs
+[RPA][100] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][100] - listening for inputs
+[RPA][101] - dump present_result to rpa_python.txt
+[RPA][101] - listening for inputs
+[RPA][102] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][102] - listening for inputs
+[RPA][103] - dump present_result to rpa_python.txt
+[RPA][103] - listening for inputs
+[RPA][104] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][104] - listening for inputs
+[RPA][105] - dump present_result to rpa_python.txt
+[RPA][105] - listening for inputs
+[RPA][106] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][106] - listening for inputs
+[RPA][107] - dump present_result to rpa_python.txt
+[RPA][107] - listening for inputs
+[RPA][108] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][108] - listening for inputs
+[RPA][109] - dump present_result to rpa_python.txt
+[RPA][109] - listening for inputs
+[RPA][110] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][110] - listening for inputs
+[RPA][111] - dump present_result to rpa_python.txt
+[RPA][111] - listening for inputs
+[RPA][112] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][112] - listening for inputs
+[RPA][113] - dump present_result to rpa_python.txt
+[RPA][113] - listening for inputs
+[RPA][114] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][114] - listening for inputs
+[RPA][115] - dump present_result to rpa_python.txt
+[RPA][115] - listening for inputs
+[RPA][116] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][116] - listening for inputs
+[RPA][117] - dump present_result to rpa_python.txt
+[RPA][117] - listening for inputs
+[RPA][118] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][118] - listening for inputs
+[RPA][119] - dump present_result to rpa_python.txt
+[RPA][119] - listening for inputs
+[RPA][120] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][120] - listening for inputs
+[RPA][121] - dump present_result to rpa_python.txt
+[RPA][121] - listening for inputs
+[RPA][122] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][122] - listening for inputs
+[RPA][123] - dump present_result to rpa_python.txt
+[RPA][123] - listening for inputs
+[RPA][124] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][124] - listening for inputs
+[RPA][125] - dump present_result to rpa_python.txt
+[RPA][125] - listening for inputs
+[RPA][126] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][126] - listening for inputs
+[RPA][127] - dump present_result to rpa_python.txt
+[RPA][127] - listening for inputs
+[RPA][128] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][128] - listening for inputs
+[RPA][129] - dump present_result to rpa_python.txt
+[RPA][129] - listening for inputs
+[RPA][130] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][130] - listening for inputs
+[RPA][131] - dump present_result to rpa_python.txt
+[RPA][131] - listening for inputs
+[RPA][132] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][132] - listening for inputs
+[RPA][133] - dump present_result to rpa_python.txt
+[RPA][133] - listening for inputs
+[RPA][134] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][134] - listening for inputs
+[RPA][135] - dump present_result to rpa_python.txt
+[RPA][135] - listening for inputs
+[RPA][136] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][136] - listening for inputs
+[RPA][137] - dump present_result to rpa_python.txt
+[RPA][137] - listening for inputs
+[RPA][138] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][138] - listening for inputs
+[RPA][139] - dump present_result to rpa_python.txt
+[RPA][139] - listening for inputs
+[RPA][140] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][140] - listening for inputs
+[RPA][141] - dump present_result to rpa_python.txt
+[RPA][141] - listening for inputs
+[RPA][142] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][142] - listening for inputs
+[RPA][143] - dump present_result to rpa_python.txt
+[RPA][143] - listening for inputs
+[RPA][144] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][144] - listening for inputs
+[RPA][145] - dump present_result to rpa_python.txt
+[RPA][145] - listening for inputs
+[RPA][146] - https://web.whatsapp.com/send?phone=554896403301
+[RPA][146] - listening for inputs
+[RPA][147] - present_result = present('//div[contains(text(), "inválido")]').toString()
+[RPA][147] - listening for inputs
+[RPA][148] - dump present_result to rpa_python.txt
+[RPA][148] - listening for inputs
+[RPA][149] - present_result = present('//div[contains(text(), "não está no WhatsApp")]').toString()
+[RPA][149] - listening for inputs
+[RPA][150] - dump present_result to rpa_python.txt
+[RPA][150] - listening for inputs
+[RPA][151] - present_result = present('//*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]').toString()
+[RPA][151] - listening for inputs
+[RPA][152] - dump present_result to rpa_python.txt
+[RPA][152] - listening for inputs
+[RPA][153] - present_result = present('//div[contains(text(), "inválido")]').toString()
+[RPA][153] - listening for inputs
+[RPA][154] - dump present_result to rpa_python.txt
+[RPA][154] - listening for inputs
+[RPA][155] - present_result = present('//div[contains(text(), "não está no WhatsApp")]').toString()
+[RPA][155] - listening for inputs
+[RPA][156] - dump present_result to rpa_python.txt
+[RPA][156] - listening for inputs
+[RPA][157] - present_result = present('//*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]').toString()
+[RPA][157] - listening for inputs
+[RPA][158] - dump present_result to rpa_python.txt
+[RPA][158] - listening for inputs
+[RPA][159] - present_result = present('//div[contains(text(), "inválido")]').toString()
+[RPA][159] - listening for inputs
+[RPA][160] - dump present_result to rpa_python.txt
+[RPA][160] - listening for inputs
+[RPA][161] - present_result = present('//div[contains(text(), "não está no WhatsApp")]').toString()
+[RPA][161] - listening for inputs
+[RPA][162] - dump present_result to rpa_python.txt
+[RPA][162] - listening for inputs
+[RPA][163] - present_result = present('//*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]').toString()
+[RPA][163] - listening for inputs
+[RPA][164] - dump present_result to rpa_python.txt
+[RPA][164] - listening for inputs
+[RPA][165] - present_result = present('//div[contains(text(), "inválido")]').toString()
+[RPA][165] - listening for inputs
+[RPA][166] - dump present_result to rpa_python.txt
+[RPA][166] - listening for inputs
+[RPA][167] - present_result = present('//div[contains(text(), "não está no WhatsApp")]').toString()
+[RPA][167] - listening for inputs
+[RPA][168] - dump present_result to rpa_python.txt
+[RPA][168] - listening for inputs
+[RPA][169] - present_result = present('//*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]').toString()
+[RPA][169] - listening for inputs
+[RPA][170] - dump present_result to rpa_python.txt
+[RPA][170] - listening for inputs
+[RPA][171] - present_result = present('//div[contains(text(), "inválido")]').toString()
+[RPA][171] - listening for inputs
+[RPA][172] - dump present_result to rpa_python.txt
+[RPA][172] - listening for inputs
+[RPA][173] - present_result = present('//div[contains(text(), "não está no WhatsApp")]').toString()
+[RPA][173] - listening for inputs
+[RPA][174] - dump present_result to rpa_python.txt
+[RPA][174] - listening for inputs
+[RPA][175] - present_result = present('//*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]').toString()
+[RPA][175] - listening for inputs
+[RPA][176] - dump present_result to rpa_python.txt
+[RPA][176] - listening for inputs
+[RPA][177] - present_result = present('//div[contains(text(), "inválido")]').toString()
+[RPA][177] - listening for inputs
+[RPA][178] - dump present_result to rpa_python.txt
+[RPA][178] - listening for inputs
+[RPA][179] - present_result = present('//div[contains(text(), "não está no WhatsApp")]').toString()
+[RPA][179] - listening for inputs
+[RPA][180] - dump present_result to rpa_python.txt
+[RPA][180] - listening for inputs
+[RPA][181] - present_result = present('//*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]').toString()
+[RPA][181] - listening for inputs
+[RPA][182] - dump present_result to rpa_python.txt
+[RPA][182] - listening for inputs
+[RPA][183] - present_result = present('//div[contains(text(), "inválido")]').toString()
+[RPA][183] - listening for inputs
+[RPA][184] - dump present_result to rpa_python.txt
+[RPA][184] - listening for inputs
+[RPA][185] - exist_result = exist('//*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]').toString()
+[RPA][185] - listening for inputs
+[RPA][186] - dump exist_result to rpa_python.txt
+[RPA][186] - listening for inputs
+[RPA][187] - click //*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]
+[RPA][187] - listening for inputs
+[RPA][188] - present_result = present('//span[contains(text(), "Documento")] | //button[contains(., "Documento")] | //li[contains(., "Documento")]').toString()
+[RPA][188] - listening for inputs
+[RPA][189] - dump present_result to rpa_python.txt
+[RPA][189] - listening for inputs
+[RPA][190] - present_result = present('//span[contains(text(), "Documento")] | //button[contains(., "Documento")] | //li[contains(., "Documento")]').toString()
+[RPA][190] - listening for inputs
+[RPA][191] - dump present_result to rpa_python.txt
+[RPA][191] - listening for inputs
+[RPA][192] - exist_result = exist('//span[contains(text(), "Documento")] | //button[contains(., "Documento")] | //li[contains(., "Documento")]').toString()
+[RPA][192] - listening for inputs
+[RPA][193] - dump exist_result to rpa_python.txt
+[RPA][193] - listening for inputs
+[RPA][194] - click //span[contains(text(), "Documento")] | //button[contains(., "Documento")] | //li[contains(., "Documento")]
+[RPA][194] - listening for inputs
+[RPA][195] - present_result = present('//p[contains(@class, "selectable-text")] | //p[contains(@class, "copyable-text")] | //div[@contenteditable="true"]').toString()
+[RPA][195] - listening for inputs
+[RPA][196] - dump present_result to rpa_python.txt
+[RPA][196] - listening for inputs
+[RPA][197] - present_result = present('//p[contains(@class, "selectable-text")] | //p[contains(@class, "copyable-text")] | //div[@contenteditable="true"]').toString()
+[RPA][197] - listening for inputs
+[RPA][198] - dump present_result to rpa_python.txt
+[RPA][198] - listening for inputs
+[RPA][199] - exist_result = exist('//p[contains(@class, "selectable-text")] | //p[contains(@class, "copyable-text")] | //div[@contenteditable="true"]').toString()
+[RPA][199] - listening for inputs
+[RPA][200] - dump exist_result to rpa_python.txt
+[RPA][200] - listening for inputs
+[RPA][201] - click //p[contains(@class, "selectable-text")] | //p[contains(@class, "copyable-text")] | //div[@contenteditable="true"]
+[RPA][201] - listening for inputs
+[RPA][202] - present_result = present('//*[@data-testid="wds-ic-send-filled"] | //*[@data-icon="wds-ic-send-filled"] | //button[@aria-label="Enviar"]').toString()
+[RPA][202] - listening for inputs
+[RPA][203] - dump present_result to rpa_python.txt
+[RPA][203] - listening for inputs
+[RPA][204] - exist_result = exist('//*[@data-testid="wds-ic-send-filled"] | //*[@data-icon="wds-ic-send-filled"] | //button[@aria-label="Enviar"]').toString()
+[RPA][204] - listening for inputs
+[RPA][205] - dump exist_result to rpa_python.txt
+[RPA][205] - listening for inputs
+[RPA][206] - click //*[@data-testid="wds-ic-send-filled"] | //*[@data-icon="wds-ic-send-filled"] | //button[@aria-label="Enviar"]
+[RPA][206] - listening for inputs
+[RPA][207] - keyboard [enter]
+[RPA][207] - listening for inputs
+[RPA][208] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][208] - listening for inputs
+[RPA][209] - dump present_result to rpa_python.txt
+[RPA][209] - listening for inputs
+[RPA][210] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][210] - listening for inputs
+[RPA][211] - dump present_result to rpa_python.txt
+[RPA][211] - listening for inputs
+[RPA][212] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][212] - listening for inputs
+[RPA][213] - dump present_result to rpa_python.txt
+[RPA][213] - listening for inputs
+[RPA][214] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][214] - listening for inputs
+[RPA][215] - dump present_result to rpa_python.txt
+[RPA][215] - listening for inputs
+[RPA][216] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][216] - listening for inputs
+[RPA][217] - dump present_result to rpa_python.txt
+[RPA][217] - listening for inputs
+[RPA][218] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][218] - listening for inputs
+[RPA][219] - dump present_result to rpa_python.txt
+[RPA][219] - listening for inputs
+[RPA][220] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][220] - listening for inputs
+[RPA][221] - dump present_result to rpa_python.txt
+[RPA][221] - listening for inputs
+[RPA][222] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][222] - listening for inputs
+[RPA][223] - dump present_result to rpa_python.txt
+[RPA][223] - listening for inputs
+[RPA][224] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][224] - listening for inputs
+[RPA][225] - dump present_result to rpa_python.txt
+[RPA][225] - listening for inputs
+[RPA][226] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][226] - listening for inputs
+[RPA][227] - dump present_result to rpa_python.txt
+[RPA][227] - listening for inputs
+[RPA][228] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][228] - listening for inputs
+[RPA][229] - dump present_result to rpa_python.txt
+[RPA][229] - listening for inputs
+[RPA][230] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][230] - listening for inputs
+[RPA][231] - dump present_result to rpa_python.txt
+[RPA][231] - listening for inputs
+[RPA][232] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][232] - listening for inputs
+[RPA][233] - dump present_result to rpa_python.txt
+[RPA][233] - listening for inputs
+[RPA][234] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][234] - listening for inputs
+[RPA][235] - dump present_result to rpa_python.txt
+[RPA][235] - listening for inputs
+[RPA][236] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][236] - listening for inputs
+[RPA][237] - dump present_result to rpa_python.txt
+[RPA][237] - listening for inputs
+[RPA][238] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][238] - listening for inputs
+[RPA][239] - dump present_result to rpa_python.txt
+[RPA][239] - listening for inputs
+[RPA][240] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][240] - listening for inputs
+[RPA][241] - dump present_result to rpa_python.txt
+[RPA][241] - listening for inputs
+[RPA][242] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][242] - listening for inputs
+[RPA][243] - dump present_result to rpa_python.txt
+[RPA][243] - listening for inputs
+[RPA][244] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][244] - listening for inputs
+[RPA][245] - dump present_result to rpa_python.txt
+[RPA][245] - listening for inputs
+[RPA][246] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][246] - listening for inputs
+[RPA][247] - dump present_result to rpa_python.txt
+[RPA][247] - listening for inputs
+[RPA][248] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][248] - listening for inputs
+[RPA][249] - dump present_result to rpa_python.txt
+[RPA][249] - listening for inputs
+[RPA][250] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][250] - listening for inputs
+[RPA][251] - dump present_result to rpa_python.txt
+[RPA][251] - listening for inputs
+[RPA][252] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][252] - listening for inputs
+[RPA][253] - dump present_result to rpa_python.txt
+[RPA][253] - listening for inputs
+[RPA][254] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][254] - listening for inputs
+[RPA][255] - dump present_result to rpa_python.txt
+[RPA][255] - listening for inputs
+[RPA][256] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][256] - listening for inputs
+[RPA][257] - dump present_result to rpa_python.txt
+[RPA][257] - listening for inputs
+[RPA][258] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][258] - listening for inputs
+[RPA][259] - dump present_result to rpa_python.txt
+[RPA][259] - listening for inputs
+[RPA][260] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][260] - listening for inputs
+[RPA][261] - dump present_result to rpa_python.txt
+[RPA][261] - listening for inputs
+[RPA][262] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][262] - listening for inputs
+[RPA][263] - dump present_result to rpa_python.txt
+[RPA][263] - listening for inputs
+[RPA][264] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][264] - listening for inputs
+[RPA][265] - dump present_result to rpa_python.txt
+[RPA][265] - listening for inputs
+[RPA][266] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][266] - listening for inputs
+[RPA][267] - dump present_result to rpa_python.txt
+[RPA][267] - listening for inputs
+[RPA][268] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][268] - listening for inputs
+[RPA][269] - dump present_result to rpa_python.txt
+[RPA][269] - listening for inputs
+[RPA][270] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][270] - listening for inputs
+[RPA][271] - dump present_result to rpa_python.txt
+[RPA][271] - listening for inputs
+[RPA][272] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][272] - listening for inputs
+[RPA][273] - dump present_result to rpa_python.txt
+[RPA][273] - listening for inputs
+[RPA][274] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][274] - listening for inputs
+[RPA][275] - dump present_result to rpa_python.txt
+[RPA][275] - listening for inputs
+[RPA][276] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][276] - listening for inputs
+[RPA][277] - dump present_result to rpa_python.txt
+[RPA][277] - listening for inputs
+[RPA][278] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][278] - listening for inputs
+[RPA][279] - dump present_result to rpa_python.txt
+[RPA][279] - listening for inputs
+[RPA][280] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][280] - listening for inputs
+[RPA][281] - dump present_result to rpa_python.txt
+[RPA][281] - listening for inputs
+[RPA][282] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][282] - listening for inputs
+[RPA][283] - dump present_result to rpa_python.txt
+[RPA][283] - listening for inputs
+[RPA][284] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][284] - listening for inputs
+[RPA][285] - dump present_result to rpa_python.txt
+[RPA][285] - listening for inputs
+[RPA][286] - https://web.whatsapp.com/send?phone=554898280959
+[RPA][286] - listening for inputs
+[RPA][287] - present_result = present('//div[contains(text(), "inválido")]').toString()
+[RPA][287] - listening for inputs
+[RPA][288] - dump present_result to rpa_python.txt
+[RPA][288] - listening for inputs
+[RPA][289] - present_result = present('//div[contains(text(), "não está no WhatsApp")]').toString()
+[RPA][289] - listening for inputs
+[RPA][290] - dump present_result to rpa_python.txt
+[RPA][290] - listening for inputs
+[RPA][291] - present_result = present('//*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]').toString()
+[RPA][291] - listening for inputs
+[RPA][292] - dump present_result to rpa_python.txt
+[RPA][292] - listening for inputs
+[RPA][293] - present_result = present('//div[contains(text(), "inválido")]').toString()
+[RPA][293] - listening for inputs
+[RPA][294] - dump present_result to rpa_python.txt
+[RPA][294] - listening for inputs
+[RPA][295] - present_result = present('//div[contains(text(), "não está no WhatsApp")]').toString()
+[RPA][295] - listening for inputs
+[RPA][296] - dump present_result to rpa_python.txt
+[RPA][296] - listening for inputs
+[RPA][297] - present_result = present('//*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]').toString()
+[RPA][297] - listening for inputs
+[RPA][298] - dump present_result to rpa_python.txt
+[RPA][298] - listening for inputs
+[RPA][299] - present_result = present('//div[contains(text(), "inválido")]').toString()
+[RPA][299] - listening for inputs
+[RPA][300] - dump present_result to rpa_python.txt
+[RPA][300] - listening for inputs
+[RPA][301] - present_result = present('//div[contains(text(), "não está no WhatsApp")]').toString()
+[RPA][301] - listening for inputs
+[RPA][302] - dump present_result to rpa_python.txt
+[RPA][302] - listening for inputs
+[RPA][303] - present_result = present('//*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]').toString()
+[RPA][303] - listening for inputs
+[RPA][304] - dump present_result to rpa_python.txt
+[RPA][304] - listening for inputs
+[RPA][305] - present_result = present('//div[contains(text(), "inválido")]').toString()
+[RPA][305] - listening for inputs
+[RPA][306] - dump present_result to rpa_python.txt
+[RPA][306] - listening for inputs
+[RPA][307] - present_result = present('//div[contains(text(), "não está no WhatsApp")]').toString()
+[RPA][307] - listening for inputs
+[RPA][308] - dump present_result to rpa_python.txt
+[RPA][308] - listening for inputs
+[RPA][309] - present_result = present('//*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]').toString()
+[RPA][309] - listening for inputs
+[RPA][310] - dump present_result to rpa_python.txt
+[RPA][310] - listening for inputs
+[RPA][311] - present_result = present('//div[contains(text(), "inválido")]').toString()
+[RPA][311] - listening for inputs
+[RPA][312] - dump present_result to rpa_python.txt
+[RPA][312] - listening for inputs
+[RPA][313] - present_result = present('//div[contains(text(), "não está no WhatsApp")]').toString()
+[RPA][313] - listening for inputs
+[RPA][314] - dump present_result to rpa_python.txt
+[RPA][314] - listening for inputs
+[RPA][315] - present_result = present('//*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]').toString()
+[RPA][315] - listening for inputs
+[RPA][316] - dump present_result to rpa_python.txt
+[RPA][316] - listening for inputs
+[RPA][317] - present_result = present('//div[contains(text(), "inválido")]').toString()
+[RPA][317] - listening for inputs
+[RPA][318] - dump present_result to rpa_python.txt
+[RPA][318] - listening for inputs
+[RPA][319] - exist_result = exist('//*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]').toString()
+[RPA][319] - listening for inputs
+[RPA][320] - dump exist_result to rpa_python.txt
+[RPA][320] - listening for inputs
+[RPA][321] - click //*[@data-testid="ic-attach-file"] | //*[@data-icon="ic-attach-file"] | //button[@title="Anexar"]
+[RPA][321] - listening for inputs
+[RPA][322] - present_result = present('//span[contains(text(), "Documento")] | //button[contains(., "Documento")] | //li[contains(., "Documento")]').toString()
+[RPA][322] - listening for inputs
+[RPA][323] - dump present_result to rpa_python.txt
+[RPA][323] - listening for inputs
+[RPA][324] - present_result = present('//span[contains(text(), "Documento")] | //button[contains(., "Documento")] | //li[contains(., "Documento")]').toString()
+[RPA][324] - listening for inputs
+[RPA][325] - dump present_result to rpa_python.txt
+[RPA][325] - listening for inputs
+[RPA][326] - exist_result = exist('//span[contains(text(), "Documento")] | //button[contains(., "Documento")] | //li[contains(., "Documento")]').toString()
+[RPA][326] - listening for inputs
+[RPA][327] - dump exist_result to rpa_python.txt
+[RPA][327] - listening for inputs
+[RPA][328] - click //span[contains(text(), "Documento")] | //button[contains(., "Documento")] | //li[contains(., "Documento")]
+[RPA][328] - listening for inputs
+[RPA][329] - present_result = present('//p[contains(@class, "selectable-text")] | //p[contains(@class, "copyable-text")] | //div[@contenteditable="true"]').toString()
+[RPA][329] - listening for inputs
+[RPA][330] - dump present_result to rpa_python.txt
+[RPA][330] - listening for inputs
+[RPA][331] - present_result = present('//p[contains(@class, "selectable-text")] | //p[contains(@class, "copyable-text")] | //div[@contenteditable="true"]').toString()
+[RPA][331] - listening for inputs
+[RPA][332] - dump present_result to rpa_python.txt
+[RPA][332] - listening for inputs
+[RPA][333] - exist_result = exist('//p[contains(@class, "selectable-text")] | //p[contains(@class, "copyable-text")] | //div[@contenteditable="true"]').toString()
+[RPA][333] - listening for inputs
+[RPA][334] - dump exist_result to rpa_python.txt
+[RPA][334] - listening for inputs
+[RPA][335] - click //p[contains(@class, "selectable-text")] | //p[contains(@class, "copyable-text")] | //div[@contenteditable="true"]
+[RPA][335] - listening for inputs
+[RPA][336] - present_result = present('//*[@data-testid="wds-ic-send-filled"] | //*[@data-icon="wds-ic-send-filled"] | //button[@aria-label="Enviar"]').toString()
+[RPA][336] - listening for inputs
+[RPA][337] - dump present_result to rpa_python.txt
+[RPA][337] - listening for inputs
+[RPA][338] - exist_result = exist('//*[@data-testid="wds-ic-send-filled"] | //*[@data-icon="wds-ic-send-filled"] | //button[@aria-label="Enviar"]').toString()
+[RPA][338] - listening for inputs
+[RPA][339] - dump exist_result to rpa_python.txt
+[RPA][339] - listening for inputs
+[RPA][340] - click //*[@data-testid="wds-ic-send-filled"] | //*[@data-icon="wds-ic-send-filled"] | //button[@aria-label="Enviar"]
+[RPA][340] - listening for inputs
+[RPA][341] - keyboard [enter]
+[RPA][341] - listening for inputs
+[RPA][342] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][342] - listening for inputs
+[RPA][343] - dump present_result to rpa_python.txt
+[RPA][343] - listening for inputs
+[RPA][344] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][344] - listening for inputs
+[RPA][345] - dump present_result to rpa_python.txt
+[RPA][345] - listening for inputs
+[RPA][346] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][346] - listening for inputs
+[RPA][347] - dump present_result to rpa_python.txt
+[RPA][347] - listening for inputs
+[RPA][348] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][348] - listening for inputs
+[RPA][349] - dump present_result to rpa_python.txt
+[RPA][349] - listening for inputs
+[RPA][350] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][350] - listening for inputs
+[RPA][351] - dump present_result to rpa_python.txt
+[RPA][351] - listening for inputs
+[RPA][352] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][352] - listening for inputs
+[RPA][353] - dump present_result to rpa_python.txt
+[RPA][353] - listening for inputs
+[RPA][354] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][354] - listening for inputs
+[RPA][355] - dump present_result to rpa_python.txt
+[RPA][355] - listening for inputs
+[RPA][356] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][356] - listening for inputs
+[RPA][357] - dump present_result to rpa_python.txt
+[RPA][357] - listening for inputs
+[RPA][358] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][358] - listening for inputs
+[RPA][359] - dump present_result to rpa_python.txt
+[RPA][359] - listening for inputs
+[RPA][360] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][360] - listening for inputs
+[RPA][361] - dump present_result to rpa_python.txt
+[RPA][361] - listening for inputs
+[RPA][362] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][362] - listening for inputs
+[RPA][363] - dump present_result to rpa_python.txt
+[RPA][363] - listening for inputs
+[RPA][364] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][364] - listening for inputs
+[RPA][365] - dump present_result to rpa_python.txt
+[RPA][365] - listening for inputs
+[RPA][366] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][366] - listening for inputs
+[RPA][367] - dump present_result to rpa_python.txt
+[RPA][367] - listening for inputs
+[RPA][368] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][368] - listening for inputs
+[RPA][369] - dump present_result to rpa_python.txt
+[RPA][369] - listening for inputs
+[RPA][370] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][370] - listening for inputs
+[RPA][371] - dump present_result to rpa_python.txt
+[RPA][371] - listening for inputs
+[RPA][372] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][372] - listening for inputs
+[RPA][373] - dump present_result to rpa_python.txt
+[RPA][373] - listening for inputs
+[RPA][374] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][374] - listening for inputs
+[RPA][375] - dump present_result to rpa_python.txt
+[RPA][375] - listening for inputs
+[RPA][376] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][376] - listening for inputs
+[RPA][377] - dump present_result to rpa_python.txt
+[RPA][377] - listening for inputs
+[RPA][378] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][378] - listening for inputs
+[RPA][379] - dump present_result to rpa_python.txt
+[RPA][379] - listening for inputs
+[RPA][380] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][380] - listening for inputs
+[RPA][381] - dump present_result to rpa_python.txt
+[RPA][381] - listening for inputs
+[RPA][382] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][382] - listening for inputs
+[RPA][383] - dump present_result to rpa_python.txt
+[RPA][383] - listening for inputs
+[RPA][384] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][384] - listening for inputs
+[RPA][385] - dump present_result to rpa_python.txt
+[RPA][385] - listening for inputs
+[RPA][386] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][386] - listening for inputs
+[RPA][387] - dump present_result to rpa_python.txt
+[RPA][387] - listening for inputs
+[RPA][388] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][388] - listening for inputs
+[RPA][389] - dump present_result to rpa_python.txt
+[RPA][389] - listening for inputs
+[RPA][390] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][390] - listening for inputs
+[RPA][391] - dump present_result to rpa_python.txt
+[RPA][391] - listening for inputs
+[RPA][392] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][392] - listening for inputs
+[RPA][393] - dump present_result to rpa_python.txt
+[RPA][393] - listening for inputs
+[RPA][394] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][394] - listening for inputs
+[RPA][395] - dump present_result to rpa_python.txt
+[RPA][395] - listening for inputs
+[RPA][396] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][396] - listening for inputs
+[RPA][397] - dump present_result to rpa_python.txt
+[RPA][397] - listening for inputs
+[RPA][398] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][398] - listening for inputs
+[RPA][399] - dump present_result to rpa_python.txt
+[RPA][399] - listening for inputs
+[RPA][400] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][400] - listening for inputs
+[RPA][401] - dump present_result to rpa_python.txt
+[RPA][401] - listening for inputs
+[RPA][402] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][402] - listening for inputs
+[RPA][403] - dump present_result to rpa_python.txt
+[RPA][403] - listening for inputs
+[RPA][404] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][404] - listening for inputs
+[RPA][405] - dump present_result to rpa_python.txt
+[RPA][405] - listening for inputs
+[RPA][406] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][406] - listening for inputs
+[RPA][407] - dump present_result to rpa_python.txt
+[RPA][407] - listening for inputs
+[RPA][408] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][408] - listening for inputs
+[RPA][409] - dump present_result to rpa_python.txt
+[RPA][409] - listening for inputs
+[RPA][410] - present_result = present('//*[@data-icon="msg-check"] | //*[@data-icon="msg-dblcheck"] | //*[@data-testid="msg-check"] | //*[@data-testid="msg-dblcheck"] | //*[contains(@data-icon, "check")]').toString()
+[RPA][410] - listening for inputs
+[RPA][411] - dump present_result to rpa_python.txt
+[RPA][411] - listening for inputs
