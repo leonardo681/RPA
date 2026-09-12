@@ -1,0 +1,48 @@
+﻿data_hora,nome,telefone,valor,status,detalhes
+2026-09-11 22:47:58,Carlos Eduardo Silva,554899667714,"R$ 250,50",ERRO_GMAIL,Campo 'Destinatários' não localizado no modal de e-mail.
+2026-09-11 22:48:03,Mariana Souza,554896403301,"R$ 480,00",SUCESSO_GMAIL,E-mail com boleto enviado com sucesso para leonardo.andrade@aluno.fmpsc.edu.br.
+2026-09-11 22:48:27,Roberto Alves,554898280959,"R$ 135,90",SUCESSO_GMAIL,E-mail com boleto enviado com sucesso para leonardo.andrade@aluno.fmpsc.edu.br.
+2026-09-11 22:49:19,Carlos Eduardo Silva,554899667714,"R$ 250,50",ERRO_GMAIL,Botão de anexar arquivo não localizado na tela.
+2026-09-11 22:55:18,Carlos Eduardo Silva,554899667714,"R$ 250,50",ERRO_GMAIL,Botão de anexar arquivo não localizado na tela.
+2026-09-11 22:56:09,Carlos Eduardo Silva,554899667714,"R$ 250,50",SUCESSO_GMAIL,E-mail com boleto enviado com sucesso para leonardo.andrade@aluno.fmpsc.edu.br.
+2026-09-11 22:56:33,Mariana Souza,554896403301,"R$ 480,00",SUCESSO_GMAIL,E-mail com boleto enviado com sucesso para leonardo.andrade@aluno.fmpsc.edu.br.
+2026-09-11 22:56:55,Roberto Alves,554898280959,"R$ 135,90",SUCESSO_GMAIL,E-mail com boleto enviado com sucesso para leonardo.andrade@aluno.fmpsc.edu.br.
+2026-09-11 23:01:41,Carlos Eduardo Silva,554899667714,"R$ 250,50",ERRO_GMAIL,Campo 'Destinatários' não localizado no modal de e-mail.
+2026-09-11 23:01:47,Mariana Souza,554896403301,"R$ 480,00",SUCESSO_GMAIL,E-mail com boleto enviado com sucesso para leonardo.andrade@aluno.fmpsc.edu.br.
+2026-09-11 23:02:02,Roberto Alves,554898280959,"R$ 135,90",SUCESSO_GMAIL,E-mail com boleto enviado com sucesso para leonardo.andrade@aluno.fmpsc.edu.br.
+2026-09-11 23:10:52,Carlos Eduardo Silva,554899667714,"R$ 250,50",SUCESSO_GMAIL,E-mail enviado com sucesso para leonardo.andrade@aluno.fmpsc.edu.br.
+2026-09-11 23:11:09,Mariana Souza,554896403301,"R$ 480,00",SUCESSO_GMAIL,E-mail enviado com sucesso para leonardo.andrade@aluno.fmpsc.edu.br.
+2026-09-11 23:11:23,Roberto Alves,554898280959,"R$ 135,90",SUCESSO_GMAIL,E-mail enviado com sucesso para leonardo.andrade@aluno.fmpsc.edu.br.
+2026-09-11 23:20:34,Leonardo Souza,554899667714,"R$ 250,50",NUMERO_INVALIDO,O número não possui conta ativa no WhatsApp.
+2026-09-11 23:20:54,Lucas Blank,554896403301,"R$ 480,00",NUMERO_INVALIDO,O número não possui conta ativa no WhatsApp.
+2026-09-11 23:21:10,Davi Lima,554898280959,"R$ 135,90",NUMERO_INVALIDO,O número não possui conta ativa no WhatsApp.
+2026-09-11 23:21:32,Leonardo Souza,554899667714,"R$ 250,50",SUCESSO_GMAIL,E-mail enviado com sucesso para leonardo.andrade@aluno.fmpsc.edu.br.
+2026-09-11 23:21:47,Lucas Blank,554896403301,"R$ 480,00",SUCESSO_GMAIL,E-mail enviado com sucesso para lucas.blank@aluno.fmpsc.edu.br.
+2026-09-11 23:22:01,Davi Lima,554898280959,"R$ 135,90",SUCESSO_GMAIL,E-mail enviado com sucesso para davi.lima@aluno.fmpsc.edu.br.
+2026-09-11 23:24:38,Leonardo Souza,554899667714,"R$ 250,50",NUMERO_INVALIDO,O número não possui conta ativa no WhatsApp.
+2026-09-11 23:24:55,Lucas Blank,554896403301,"R$ 480,00",NUMERO_INVALIDO,O número não possui conta ativa no WhatsApp.
+2026-09-11 23:25:10,Davi Lima,554898280959,"R$ 135,90",NUMERO_INVALIDO,O número não possui conta ativa no WhatsApp.
+2026-09-11 23:25:32,Leonardo Souza,554899667714,"R$ 250,50",SUCESSO_GMAIL,E-mail enviado com sucesso para leonardo.andrade@aluno.fmpsc.edu.br.
+2026-09-11 23:25:42,Lucas Blank,554896403301,"R$ 480,00",ERRO_GMAIL,Campo 'Destinatários' não localizado no modal.
+2026-09-11 23:25:58,Davi Lima,554898280959,"R$ 135,90",ERRO_GMAIL,Campo 'Destinatários' não localizado no modal.
+2026-09-11 23:34:28,Leonardo Souza,554899667714,"R$ 250,50",TIMEOUT_CONFIRMACAO,"Mensagem disparada, mas confirmação visual excedeu o tempo."
+2026-09-11 23:35:17,Lucas Blank,554896403301,"R$ 480,00",TIMEOUT_CONFIRMACAO,"Mensagem disparada, mas confirmação visual excedeu o tempo."
+2026-09-11 23:36:00,Davi Lima,554898280959,"R$ 135,90",TIMEOUT_CONFIRMACAO,"Mensagem disparada, mas confirmação visual excedeu o tempo."
+2026-09-11 23:36:49,Leonardo Souza,554899667714,"R$ 250,50",SUCESSO_GMAIL,E-mail enviado com sucesso para leonardo.andrade@aluno.fmpsc.edu.br.
+2026-09-11 23:37:03,Lucas Blank,554896403301,"R$ 480,00",SUCESSO_GMAIL,E-mail enviado com sucesso para lucas.blank@aluno.fmpsc.edu.br.
+2026-09-11 23:37:17,Davi Lima,554898280959,"R$ 135,90",SUCESSO_GMAIL,E-mail enviado com sucesso para davi.lima@aluno.fmpsc.edu.br.
+2026-09-11 23:39:38,Leonardo Souza,554899667714,"R$ 250,50",TIMEOUT_CONFIRMACAO,"Mensagem disparada, mas confirmação visual excedeu o tempo."
+2026-09-11 23:40:29,Lucas Blank,554896403301,"R$ 480,00",TIMEOUT_CONFIRMACAO,"Mensagem disparada, mas confirmação visual excedeu o tempo."
+2026-09-11 23:42:16,Leonardo Souza,554899667714,"R$ 250,50",ERRO_EXCECAO,[WinError 32] O arquivo já está sendo usado por outro processo: 'rpa_python.txt'
+2026-09-11 23:41:12,Davi Lima,554898280959,"R$ 135,90",NUMERO_INVALIDO,O número não possui conta ativa no WhatsApp.
+2026-09-11 23:42:35,Leonardo Souza,554899667714,"R$ 250,50",ERRO_GMAIL,Campo 'Destinatários' não localizado no modal.
+2026-09-11 23:42:28,Lucas Blank,554896403301,"R$ 480,00",ERRO_ANEXO,"Opção ""Documento"" não apareceu no menu de anexos."
+2026-09-11 23:42:40,Lucas Blank,554896403301,"R$ 480,00",ERRO_GMAIL,Campo 'Destinatários' não localizado no modal.
+2026-09-11 23:42:45,Davi Lima,554898280959,"R$ 135,90",ERRO_GMAIL,Campo 'Destinatários' não localizado no modal.
+2026-09-11 23:43:50,Leonardo Souza,554899667714,"R$ 250,50",TIMEOUT_CONFIRMACAO,"Mensagem disparada, mas confirmação visual excedeu o tempo."
+2026-09-11 23:46:04,Leonardo Souza,554899667714,"R$ 250,50",TIMEOUT_CONFIRMACAO,"Mensagem disparada, mas confirmação visual excedeu o tempo."
+2026-09-11 23:46:56,Lucas Blank,554896403301,"R$ 480,00",TIMEOUT_CONFIRMACAO,"Mensagem disparada, mas confirmação visual excedeu o tempo."
+2026-09-11 23:47:40,Davi Lima,554898280959,"R$ 135,90",TIMEOUT_CONFIRMACAO,"Mensagem disparada, mas confirmação visual excedeu o tempo."
+2026-09-11 23:48:28,Leonardo Souza,554899667714,"R$ 250,50",SUCESSO_GMAIL,E-mail enviado com sucesso para leonardo.andrade@aluno.fmpsc.edu.br.
+2026-09-11 23:48:43,Lucas Blank,554896403301,"R$ 480,00",SUCESSO_GMAIL,E-mail enviado com sucesso para lucas.blank@aluno.fmpsc.edu.br.
+2026-09-11 23:48:57,Davi Lima,554898280959,"R$ 135,90",SUCESSO_GMAIL,E-mail enviado com sucesso para davi.lima@aluno.fmpsc.edu.br.

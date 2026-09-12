@@ -398,17 +398,157 @@ def enviar_boletos_whatsapp(carteira_clientes, pasta_destino='relatorios'):
         '\n✓ Processamento finalizado! Relatório salvo em: relatorios/relatorio_envios.csv'
     )
 
+def abrir_gmail():
+    """
+    Navega até a página do Gmail utilizando a sessão ativa do RPA.
+    """
+    print("Acessando o Gmail...")
+    url_gmail = "https://mail.google.com/"
+    
+    r.url(url_gmail)
+    time.sleep(5)  # Tempo para o carregamento inicial da página
 
+    # Verifica se a tela de login ou a caixa de entrada carregou
+    if r.present('//input[@type="email"]') or r.present('//div[@role="main"]') or r.present('//a[contains(@href, "mail")]'):
+        print("✓ Gmail carregado com sucesso!")
+    else:
+        print("⚠️ Gmail acessado, aguardando carregamento ou autenticação...")
 
+def enviar_boletos_gmail(carteira_clientes):
+    """Percorre a carteira de clientes, abre a janela de composição do Gmail Web,
 
+    preenche o e-mail, assunto e mensagem, e envia (sem anexo PDF).
+    """
+    if not carteira_clientes:
+        print('Nenhum cliente fornecido para envio via Gmail.')
+        return
 
+    print('Iniciando envio de cobranças por E-mail (Gmail)...')
+
+    # Seletores do Gmail Web
+    seletor_escrever = '//div[@gh="cm"] | //div[contains(text(), "Escrever")] | //div[@role="button" and contains(., "Escrever")]'
+    seletor_destinatario = '//input[contains(@aria-label, "Destinatários")] | //input[@peoplekit-id] | //div[text()="Para"]/following::input[1]'
+    seletor_assunto = (
+        '//input[@name="subjectbox"] | //input[@aria-label="Assunto"]'
+    )
+    seletor_corpo = '//div[contains(@aria-label, "Corpo da mensagem")] | //div[@role="textbox"] | //div[contains(@class, "LW-avf")]'
+
+    # Seletor exato utilizando a classe fixa 'aoO' do botão Enviar do Gmail
+    seletor_enviar = '//div[contains(@class, "aoO")] | //div[@role="button" and contains(@aria-label, "Enviar")] | //div[@role="button" and text()="Enviar"]'
+
+    total_clientes = len(carteira_clientes)
+
+    for index, (telefone, info) in enumerate(carteira_clientes.items(), start=1):
+        nome = info.get('nome', 'Cliente')
+        email = info.get('email', '').strip()
+        valor = info.get('valor a ser pago', '')
+        vencimento = info.get('data de vencimento', '')
+        data_hora_atual = time.strftime('%Y-%m-%d %H:%M:%S')
+
+        print(
+            f'[{index}/{total_clientes}] Processando E-mail: {nome} ({email})...'
+        )
+
+        log_registro = {
+            'data_hora': data_hora_atual,
+            'nome': nome,
+            'telefone': telefone,
+            'valor': valor,
+            'status': '',
+            'detalhes': '',
+        }
+
+        # Validar e-mail
+        if not email or '@' not in email:
+            log_registro['status'] = 'EMAIL_INVALIDO'
+            log_registro['detalhes'] = (
+                f"E-mail ausente ou inválido no cadastro: '{email}'"
+            )
+            registrar_log_csv(log_registro)
+            print('  ↳ ⚠️ E-mail ausente/inválido. Registrado no CSV.')
+            continue
+
+        try:
+            # 1. Clica no botão "Escrever"
+            if not r.present(seletor_escrever):
+                print("  ↳ Aguardando botão 'Escrever'...")
+                time.sleep(3)
+
+            r.click(seletor_escrever)
+            time.sleep(2)  # Aguarda modal abrir
+
+            # 2. Clica no campo "Destinatários" e cola o e-mail
+            if r.present(seletor_destinatario):
+                r.click(seletor_destinatario)
+                time.sleep(0.5)
+                pyperclip.copy(email)
+                p.hotkey('ctrl', 'v')
+                time.sleep(0.5)
+                p.press('enter')
+            else:
+                raise Exception(
+                    "Campo 'Destinatários' não localizado no modal."
+                )
+
+            # 3. Preenche o Assunto
+            assunto = f'Demonstrativo de Cobrança - {nome}'
+            if r.present(seletor_assunto):
+                r.click(seletor_assunto)
+                time.sleep(0.5)
+                pyperclip.copy(assunto)
+                p.hotkey('ctrl', 'v')
+                time.sleep(0.5)
+
+            # 4. Preenche o Corpo do E-mail
+            link_pagamento = f'https://fatura.suaempresa.com.br/2via/{telefone}'
+            mensagem = (
+                f'Olá {nome}, tudo bem?\n\n'
+                f'Segue o seu demonstrativo de cobrança no valor de {valor} '
+                f'com vencimento para {vencimento}.\n\n'
+                f'Para facilitar, você também pode acessar a 2ª via pelo link: {link_pagamento}\n\n'
+                f'Atenciosamente,\nEquipe de Cobrança'
+            )
+
+            if r.present(seletor_corpo):
+                r.click(seletor_corpo)
+                time.sleep(0.5)
+                pyperclip.copy(mensagem)
+                p.hotkey('ctrl', 'v')
+                time.sleep(1)
+
+            # 5. Envia o E-mail (Clique no botão ou via Ctrl+Enter nativo do Gmail)
+            print('  ↳ Disparando e-mail...')
+            if r.present(seletor_enviar):
+                r.click(seletor_enviar)
+            else:
+                # Atalho padrão do Gmail para enviar a caixa focada
+                p.hotkey('ctrl', 'enter')
+
+            time.sleep(3)  # Aguarda fechar a janela do e-mail
+
+            log_registro['status'] = 'SUCESSO_GMAIL'
+            log_registro['detalhes'] = (
+                f'E-mail enviado com sucesso para {email}.'
+            )
+            registrar_log_csv(log_registro)
+            print('  ↳ ✓ E-mail enviado com sucesso!')
+
+        except Exception as e:
+            log_registro['status'] = 'ERRO_GMAIL'
+            log_registro['detalhes'] = str(e)
+            registrar_log_csv(log_registro)
+            print(f'  ↳ ❌ Erro ao enviar e-mail: {e}')
+
+    print('\n✓ Envio de e-mails concluído com sucesso!')
 
 # --- EXECUÇÃO DO MÉTODO ---
 if __name__ == "__main__":
     
     abrir_navegador()
     abrir_whatsapp_web()
-    #gerar_planilha_clientes()
     carteira = coletar_dados_cobranca()
     if carteira:
         enviar_boletos_whatsapp(carteira)
+    abrir_gmail()
+    if carteira:
+        enviar_boletos_gmail(carteira)
