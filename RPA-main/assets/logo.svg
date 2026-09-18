@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="330" height="70" viewBox="0 0 330 70" role="img" aria-labelledby="title">
+  <title id="title">TechSolutions Ltda</title>
+  <rect x="0" y="5" width="60" height="60" rx="16" fill="#102c46"/>
+  <path d="M14 22h32v7H34v23h-8V29H14z" fill="#4ad4c8"/>
+  <circle cx="46" cy="49" r="5" fill="#f9b35b"/>
+  <text x="74" y="35" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#102c46">TechSolutions</text>
+  <text x="75" y="54" font-family="Arial, sans-serif" font-size="12" letter-spacing="2" fill="#4b6478">TECNOLOGIA QUE CONECTA</text>
+</svg>

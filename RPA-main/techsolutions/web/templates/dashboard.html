@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-heading"><div><p class="eyebrow">VISÃO GERAL</p><h1>Painel de cobranças</h1><p class="muted">Acompanhe clientes, vencimentos e pagamentos.</p></div><a class="btn btn-primary" href="{{ url_for('invoice_new') }}">+ Nova fatura</a></div>
+<section class="metric-grid" aria-label="Indicadores">
+  <article class="metric"><span>Clientes</span><strong>{{ stats.total_clientes }}</strong></article>
+  <article class="metric"><span>Pendentes</span><strong>{{ stats.pendentes }}</strong></article>
+  <article class="metric"><span>Pagas</span><strong class="text-success">{{ stats.pagas }}</strong></article>
+  <article class="metric"><span>Vencidas</span><strong class="text-danger">{{ stats.vencidas }}</strong></article>
+  <article class="metric metric-accent"><span>Valor em aberto</span><strong>R$ {{ stats.valor_aberto_centavos|brl }}</strong></article>
+</section>
+<div class="alert alert-info">Os documentos são demonstrativos. O envio de uma cobrança não registra seu pagamento; a confirmação financeira é feita separadamente.</div>
+<section class="card"><div class="section-heading"><h2>Faturas recentes</h2><a href="{{ url_for('invoices') }}">Ver todas as faturas →</a></div>{% include '_invoice_table.html' %}</section>
+{% endblock %}

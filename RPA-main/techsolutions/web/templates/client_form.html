@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}{{ 'Editar' if editing else 'Cadastrar' }} cliente • TechSolutions{% endblock %}
+{% block content %}
+<div class="page-heading"><div><p class="eyebrow">CLIENTES</p><h1>{{ 'Editar' if editing else 'Cadastrar' }} cliente</h1><p class="muted">Todos os campos são obrigatórios. O e-mail identifica duplicidades.</p></div><a href="{{ url_for('clients') }}">← Voltar aos clientes</a></div>
+<section class="card form-card">
+{% if result %}<div id="rpa-result" data-status="{{ result.status }}" data-client-id="{{ result.id }}" class="alert alert-{{ 'success' if result.status == 'success' else 'warning' if result.status == 'duplicate' else 'danger' }}" role="status">{{ result.message }}</div>{% endif %}
+<form method="post" id="client-form">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <label for="nome">Nome completo</label><input class="form-control" name="nome" id="nome" required maxlength="120" value="{{ values.get('nome', '') }}" autocomplete="name">
+  <div class="form-grid"><div><label for="email">E-mail</label><input class="form-control" type="email" name="email" id="email" required maxlength="254" value="{{ values.get('email', '') }}" autocomplete="email"></div>
+  <div><label for="telefone">Telefone com DDD</label><input class="form-control" type="tel" name="telefone" id="telefone" required maxlength="24" value="{{ values.get('telefone', '') }}" placeholder="+55 11 99999-9999" autocomplete="tel"></div></div>
+  <label for="endereco">Endereço</label><input class="form-control" name="endereco" id="endereco" required maxlength="300" value="{{ values.get('endereco', '') }}" autocomplete="street-address">
+  <div class="actions"><button class="btn btn-primary" type="submit" id="save-client">Salvar cliente</button><a class="btn btn-light" href="{{ url_for('clients') }}">Voltar à lista</a></div>
+</form>
+</section>
+{% endblock %}

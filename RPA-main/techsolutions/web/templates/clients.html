@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Clientes • TechSolutions{% endblock %}
+{% block content %}
+<div class="page-heading"><div><p class="eyebrow">RELACIONAMENTO</p><h1>Clientes</h1><p class="muted">{{ clients|length }} cliente(s) cadastrado(s).</p></div><a class="btn btn-primary" href="{{ url_for('client_new') }}">+ Cadastrar cliente</a></div>
+<section class="card table-responsive"><table class="table"><thead><tr><th>ID / Nome</th><th>E-mail</th><th>Telefone</th><th>Endereço</th><th>Ações</th></tr></thead><tbody>
+{% for client in clients %}<tr><td><span class="small muted">#{{ client.id }}</span><br><strong>{{ client.nome }}</strong></td><td>{{ client.email }}</td><td>{{ client.telefone }}</td><td>{{ client.endereco }}</td><td><a class="btn btn-light btn-sm" href="{{ url_for('client_edit', client_id=client.id) }}">Editar</a><a class="btn btn-light btn-sm" href="{{ url_for('invoices', cliente_id=client.id) }}">Faturas</a></td></tr>
+{% else %}<tr><td colspan="5" class="empty-state">Nenhum cliente cadastrado. Cadastre pelo formulário ou importe pelo robô Selenium.</td></tr>{% endfor %}
+</tbody></table></section>
+{% endblock %}

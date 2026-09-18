@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Nova fatura • TechSolutions{% endblock %}
+{% block content %}
+<div class="page-heading"><div><p class="eyebrow">FATURAMENTO</p><h1>Nova fatura</h1><p class="muted">Emissão de documento demonstrativo, sem validade para pagamento.</p></div><a href="{{ url_for('invoices') }}">← Voltar às faturas</a></div>
+<section class="card form-card">
+{% if error %}<div class="alert alert-danger" role="alert">{{ error }}</div>{% endif %}
+{% if not clients %}<div class="alert alert-warning">Cadastre pelo menos um cliente antes de emitir faturas. <a href="{{ url_for('client_new') }}">Cadastrar cliente</a>.</div>{% endif %}
+<form method="post"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<label for="cliente_id">Cliente</label><select class="form-select" name="cliente_id" id="cliente_id" required><option value="">Selecione o cliente</option>{% for client in clients %}<option value="{{ client.id }}" {% if request.form.get('cliente_id') == client.id|string %}selected{% endif %}>#{{ client.id }} · {{ client.nome }} · {{ client.email }}</option>{% endfor %}</select>
+<div class="form-grid"><div><label for="valor">Valor em reais</label><input class="form-control" name="valor" id="valor" required inputmode="decimal" placeholder="150,00" value="{{ request.form.get('valor','') }}"><p class="small muted">Use vírgula ou ponto decimal, com até duas casas.</p></div>
+<div><label for="data_vencimento">Data de vencimento</label><input class="form-control" name="data_vencimento" id="data_vencimento" type="date" required value="{{ request.form.get('data_vencimento','') }}"></div></div>
+<div class="actions"><button class="btn btn-primary" type="submit" {% if not clients %}disabled{% endif %}>Emitir fatura</button><a class="btn btn-light" href="{{ url_for('invoices') }}">Cancelar</a></div>
+</form></section>
+{% endblock %}

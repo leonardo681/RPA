@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Faturas • TechSolutions{% endblock %}
+{% block content %}
+<div class="page-heading"><div><p class="eyebrow">CONTROLE FINANCEIRO</p><h1>Faturas</h1><p class="muted">Consulte documentos e registre os pagamentos da demonstração.</p></div><div class="actions"><form method="post" action="{{ url_for('invoices_generate_pdfs') }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="btn btn-light" type="submit">Gerar todos os PDFs</button></form><a class="btn btn-primary" href="{{ url_for('invoice_new') }}">+ Nova fatura</a></div></div>
+<section class="card"><form method="get" class="filter-grid">
+<div><label for="cliente_id">Cliente</label><select class="form-select" id="cliente_id" name="cliente_id"><option value="">Todos</option>{% for client in clients %}<option value="{{ client.id }}" {% if request.args.get('cliente_id') == client.id|string %}selected{% endif %}>{{ client.nome }}</option>{% endfor %}</select></div>
+<div><label for="status">Situação</label><select class="form-select" id="status" name="status"><option value="">Todas</option>{% for status in ['Pendente','Vencida','Paga','Cancelada'] %}<option {% if request.args.get('status') == status %}selected{% endif %}>{{ status }}</option>{% endfor %}</select></div>
+<div><label for="de">Vence a partir de</label><input class="form-control" type="date" name="de" id="de" value="{{ request.args.get('de','') }}"></div>
+<div><label for="ate">Vence até</label><input class="form-control" type="date" name="ate" id="ate" value="{{ request.args.get('ate','') }}"></div>
+<div class="actions"><button class="btn btn-primary" type="submit">Filtrar</button><a class="btn btn-light" href="{{ url_for('invoices') }}">Limpar</a></div>
+</form></section>
+<section class="card">{% include '_invoice_table.html' %}</section>
+{% endblock %}

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>{% block title %}TechSolutions • Cobranças{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="{{ url_for('dashboard') }}"><img src="{{ url_for('logo') }}" alt="TechSolutions Ltda" width="264" height="56"></a>
+    {% if session.get('authenticated') %}
+    <nav aria-label="Menu principal">
+      <a class="nav-link {% if request.endpoint == 'dashboard' %}active{% endif %}" href="{{ url_for('dashboard') }}">Painel</a>
+      <a class="nav-link {% if request.endpoint in ['clients','client_new','client_edit'] %}active{% endif %}" href="{{ url_for('clients') }}">Clientes</a>
+      <a class="nav-link {% if request.endpoint in ['invoices','invoice_new','invoice_detail'] %}active{% endif %}" href="{{ url_for('invoices') }}">Faturas</a>
+      <form method="post" action="{{ url_for('logout') }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="btn btn-light" type="submit">Sair</button></form>
+    </nav>
+    {% endif %}
+  </header>
+  <main class="container">
+    {% for category, message in get_flashed_messages(with_categories=true) %}
+      <div role="status" class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer>TechSolutions Ltda · Projeto acadêmico · Dados fictícios</footer>
+</body>
+</html>

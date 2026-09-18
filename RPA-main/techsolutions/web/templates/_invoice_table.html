@@ -1,0 +1,4 @@
+<div class="table-responsive"><table class="table"><thead><tr><th>Fatura / Cliente</th><th>Vencimento</th><th>Valor</th><th>Situação financeira</th><th></th></tr></thead><tbody>
+{% for invoice in invoices %}<tr><td><span class="small muted">#{{ '%06d'|format(invoice.id) }}</span><br><strong>{{ invoice.nome }}</strong></td><td>{{ invoice.data_vencimento }}</td><td class="money">R$ {{ invoice.valor_centavos|brl }}</td><td><span class="status status-{{ invoice.situacao|lower }}">{{ invoice.situacao }}</span></td><td><a class="btn btn-light btn-sm" href="{{ url_for('invoice_detail', invoice_id=invoice.id) }}">Ver detalhes</a></td></tr>
+{% else %}<tr><td colspan="5" class="empty-state">Nenhuma fatura encontrada. Cadastre uma fatura para iniciar a cobrança.</td></tr>{% endfor %}
+</tbody></table></div>

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Acesso local • TechSolutions{% endblock %}
+{% block content %}
+<section class="card login-card">
+  <p class="eyebrow">ÁREA ADMINISTRATIVA</p>
+  <h1>Gestão de cobranças</h1>
+  <p class="muted">Entre com a senha da apresentação para gerenciar clientes e faturas.</p>
+  {% if error %}<div class="alert alert-danger" role="alert">{{ error }}</div>{% endif %}
+  <form method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <label for="password">Senha de acesso</label>
+    <input class="form-control" type="password" name="password" id="password" required autocomplete="current-password" autofocus>
+    <button class="btn btn-primary full-width" id="login-button" type="submit">Entrar no sistema</button>
+  </form>
+  <p class="small muted">A senha é definida em ADMIN_PASSWORD. Quando não configurada, é criada em <code>data/local_admin_password.txt</code>.</p>
+</section>
+{% endblock %}

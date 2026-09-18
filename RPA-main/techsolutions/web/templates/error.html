@@ -1,0 +1,2 @@
+{% extends 'base.html' %}
+{% block content %}<section class="card public-card"><p class="eyebrow">TECHSOLUTIONS</p><h1>{{ error.code }} · {{ 'Página não encontrada' if error.code == 404 else 'Não foi possível concluir' }}</h1><p>{{ 'Verifique o endereço ou solicite um novo link ao responsável pela apresentação.' if error.code == 404 else error.description }}</p><a class="btn btn-primary" href="{{ url_for('dashboard') }}">Voltar ao início</a></section>{% endblock %}
